@@ -19,8 +19,9 @@
     <!--Parte superior de la página-->
     <header>
         <div id="cabecera">
-            <h3>Mapa de la fisi</h3>
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
+            <h3>Mapa Interactivo de la FISI</h3>
+            <button><img src="../../public/img/usuario.png" alt="imagen">Ingresar</button>   
         </div>
     </header>
 

@@ -13,13 +13,22 @@ body{
 /*Estilos cabecera*/
 header{
     height: 10%;
-    background-color: royalblue;
+    width: 100%;
+    display: block;
+    background-color: #68141C;
 }
 /*contenedor del header*/
  #cabecera{
+    position: relative;
+    margin-top: auto;
     display: flex;
-    align-items: center;
-    padding-left: 15px;
+    padding: 0 auto;
+    color: #fff;
+ }
+ #cabecera h3{
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
     color: #fff;
  }
 /*imagen dentro del header*/
@@ -27,6 +36,19 @@ header{
     width: 5%;
     left: 15px;
 }
+/*Boton dentro del header*/
+#cabecera button{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+#cabecera button img{
+    width: 50%;
+    inline-size: auto;
+}
+
 
 /*Estilos del mapa*/
 #pantalla_mapa{
