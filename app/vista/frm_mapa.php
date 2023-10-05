@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Mapa Fisi</title>
     <link rel="stylesheet" href="../../public/css/estilo_mapa.css">
+    <link rel="stylesheet" href="../../public/css/estilo_modal.css">
+    rel
 
     <!--API de mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
@@ -53,6 +55,11 @@
 
     </div>
 
+    <!--botón para mostrar los horarios-->
+    <div class="botones" id="cambia_horarioMapa">
+    <button type="button" onclick="mostrarHorarios()">Horarios</button>
+    </div>
+
     <div id="pantalla_horario" style="display: none;">
         <!-- Pantalla de los horarios -->
         <div class="tabla-horarios">
@@ -85,7 +92,7 @@
                     <!-- Puedes agregar más filas aquí si es necesario -->
                 </tbody>
             </table>
-            <button type="button" onclick="cambia_horario_mapa()">Cerrar</button>
+            <button type="button" onclick="cerrarHorarios()">Cerrar</button>
         </div>
     </div>
 
@@ -113,12 +120,112 @@
         </center>
     </div>
 
-    <!--AGREGAR BOOTSTRAP (JSCRIPT)-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-    <script src="../../public/js/mapa.js"></script>
+    <!-- Hacer la unión con el botón Agregar curso de CRUD AREAS"  (modificar si hace falta) -->
+    <button id="btnAgregarCurso" onclick="mostrarModalAgregarCurso()">Agregar curso</button>
+
+    <!-- Pantalla de Agregar/Modificar Áreas (no olvidar meter el botón para que se vea )-->
+    <div id="pantalla_agregar_modificar_areas" class="modal">
+        <div class="cuadro-pequeno">
+            
+            <!-- Agrega el botón "x" para cerrar la ventana modal -->
+            <span class="cerrar" id="cerrarModal">&times;</span>
+
+            <h2>DATOS DEL CURSO</h2>
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo"><br>
+
+            <label for="area">Área:</label>
+            <select id="area" name="area">
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select><br>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br>
+
+            <label for="grupo">Grupo:</label>
+            <select id="grupo" name="grupo">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select><br>
+
+            <label for="modo">Modo:</label>
+            <select id="modo" name="modo">
+                <option value="Virtual">Virtual</option>
+                <option value="Presencial">Presencial</option>
+            </select><br>
+
+            <label for="dia">Día:</label>
+            <select id="dia" name="dia">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miércoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sábado">Sábado</option>
+            </select><br>
+
+            <label for="hora_inicio">Hora inicio:</label>
+            <input type="time" id="hora_inicio" name="hora_inicio"><br>
+
+            <label for="hora_fin">Hora fin:</label>
+            <input type="time" id="hora_fin" name="hora_fin"><br>
+
+            <button id="btnListo" onclick="guardarDatos()">Listo</button>
+        </div> 
+    </div>
+
+
+    <<!--coloqué esto aquí, pero iría en el usu_controlador-->
+    <script>
+
+        // Función para mostrar los horarios
+        function mostrarHorarios() {
+            var pantallaHorario = document.getElementById('pantalla_horario');
+            pantallaHorario.style.display = 'block';
+        }
+
+        // Función para cerrar los horarios
+        function cerrarHorarios() {
+            var pantallaHorario = document.getElementById('pantalla_horario');
+            pantallaHorario.style.display = 'none';
+        }
+    </script>
+    
+    <script>
+            // Función para mostrar el modal
+            function mostrarModalAgregarArea() {
+                var modal = document.getElementById('pantalla_agregar_modificar_areas');
+                modal.style.display = 'block';
+            }
+
+            // Función para cerrar el modal
+            function cerrarModalAgregarArea() {
+                var modal = document.getElementById('pantalla_agregar_modificar_areas');
+                modal.style.display = 'none';
+            }
+
+    </script>
+
+    <script>
+        // Función para mostrar el modal de agregar curso
+        function mostrarModalAgregarCurso() {
+            var modal = document.getElementById('pantalla_agregar_modificar_areas');
+            modal.style.display = 'block';
+        }
+
+        // Función para cerrar el modal de agregar curso
+        function cerrarModalAgregarCurso() {
+            var modal = document.getElementById('pantalla_agregar_modificar_areas');
+            modal.style.display = 'none';
+        }
+    </script>
+
 </body>
+
+ <!-- NO OLVIDES Incluir el archivo controlador -->
+
 <script type="text/javascript" src="../../public/js/mapa_config.js"></script>
 
 </html>
