@@ -21,7 +21,7 @@
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
-            <button><img src="../../public/img/usuario.png" alt="imagen">Ingresar</button>   
+            <button><img src="../../public/img/usuario.png" alt="imagen">Acceder</button>   
         </div>
     </header>
 
@@ -42,15 +42,20 @@
 
 
         
-        <div class="botones" id="cambia_horarioMapa">
-            <button type="button" onclick="cambia_mapa_horario()">Horarios</button>
+        <div class="botones" id="cambia_MapaHorario">
+            <button type="button" onclick="cambia_mapa_horario()">Ver Horario</button>
         </div>
         <div class="navegador">
-            <button type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
+            <button type="button">1P</button>
+            <button type="button">2P</button>
+            <button type="button">3P</button>
         </div>
-        <button id="mostrarInfo">Mostrar Información del Aula</button>
+        <div class="zoom">
+            <button type="button">+</button>
+            <button type="button">-</button>
+        </div>
+
+        
 
     </div>
 

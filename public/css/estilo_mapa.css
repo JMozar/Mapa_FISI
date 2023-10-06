@@ -39,14 +39,19 @@ header{
 /*Boton dentro del header*/
 #cabecera button{
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 50%;
     transform: translate(0,-50%);
+    background-color: #68141C;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0 0.5rem;
 }
 
 #cabecera button img{
     width: 50%;
-    inline-size: auto;
+    inline-size: 50px;
 }
 
 
@@ -67,26 +72,53 @@ position: relative;
     position: absolute;
     z-index: 1;
 }
+/*--------------------------------------------------------------------*/
 /*Estilo del boton de cambio de pantalla: mapa-horarios*/
-#cambia_horarioMapa{
+#cambia_MapaHorario{
+    position: absolute;
     bottom: 10px;
-    left: 50%;
+    left: 5%;
+    bottom: 5%;
     width: 100%;
     margin: 0 auto;
 }
+
+#cambia_MapaHorario button{
+    font-size: 1.2em;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    background-color: #68141C;
+    color: #fff;
+}
+/*--------------------------------------------------------------------*/
+
 /*Estilo del navegador de pisos*/
 .navegador{
     position: absolute;
     z-index: 1;
-    right: 10px;
-    bottom: 50%;
+    right: 1rem;
+    bottom: 5rem;
 }
 
 /*Estilo de los botones de los pisos*/
 .navegador button{
-    width: 50px;
-    height: 50px;
+    font-size: 1.2em;
+    width: 30px;
+    height: 30px;
     display: block;
+}
+/*Estilo de los botones de zoom*/
+.zoom{
+    position: absolute;
+    z-index: 1;
+    right: 1rem;
+    bottom: 1.2rem;
+}
+/*Estilo de los botones de los pisos*/
+.zoom button{
+    width: 30px;
+    height: 30px;
+    font-size: 2em;
 }
 /*Estilo boton mostrar info*/
 #mostrarInfo{
