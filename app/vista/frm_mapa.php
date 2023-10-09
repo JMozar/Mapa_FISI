@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Mapa Fisi</title>
     <link rel="stylesheet" href="../../public/css/estilo_mapa.css">
-    <link rel="stylesheet" href="../../public/css/estilo_modal.css">
-    rel
+    <link rel="stylesheet" href="../../public/css/estilo_horarios.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+
+
 
     <!--API de mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
@@ -42,190 +44,344 @@
         <!--Pantala principal del mapa-->
 
 
-        
-        <div class="botones" id="cambia_horarioMapa">
-            <button type="button" onclick="cambia_mapa_horario()">Horarios</button>
-        </div>
+
         <div class="navegador">
             <button type="button">1</button>
             <button type="button">2</button>
             <button type="button">3</button>
+        </div>       
+    </div>
+
+<!-- función para vista horarios-->
+<div>
+    <button id="vista_horario">Vista horario</button>
+    </div>
+
+    <div id="ventanaEmergenteHorario" style="display: none;">
+    <div class="ventana_horarios">
+        <div class="cabecera">
+            <h2 class="h2_horarios">HOJA DE HORARIOS</h2>
+            <span class="cerrar" id="cerrarVentanaHorarioBtn">&times;</span>
         </div>
-        <button id="mostrarInfo">Mostrar Información del Aula</button>
-
-    </div>
-
-    <!--botón para mostrar los horarios-->
-    <div class="botones" id="cambia_horarioMapa">
-    <button type="button" onclick="mostrarHorarios()">Horarios</button>
-    </div>
-
-    <div id="pantalla_horario" style="display: none;">
-        <!-- Pantalla de los horarios -->
-        <div class="tabla-horarios">
-            <p>Horarios</p>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>PROFESOR</th>
-                        <th>CURSO</th>
-                        <th>AULA</th>
-                        <th>HORARIO ENTRADA</th>
-                        <th>HORARIO SALIDA</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>PETRLINK AZABACHE IVAN CARLO</td>
-                        <td>(2018) EXPERIENCIA DE USUARIO Y USABILIDAD</td>
-                        <td>NP 201</td>
-                        <td>16:00</td>
-                        <td>20:00</td>
-                    </tr>
-                    <tr>
-                        <td>HERRERA QUISPE JOSÉ ALFREDO</td>
-                        <td>(2018) METODOLOGÍA DE LA ELABORACIÓN DE TESIS</td>
-                        <td>102</td>
-                        <td>19:00</td>
-                        <td>22:00</td>
-                    </tr>
-                    <!-- Puedes agregar más filas aquí si es necesario -->
-                </tbody>
-            </table>
-            <button type="button" onclick="cerrarHorarios()">Cerrar</button>
-        </div>
-    </div>
-
-
-    <!--Información de areas-->
-    <div id="ventanaEmergente" class="ventana">
-        <div class="contenido_ventana">
-            <span class="cerrar" id="cerrarVentana">&times;</span>
-            <h2>Información del Aula</h2>
-            <br>
+        
+        <table class="tabla_horarios">
             <center>
-                <table style="text-align: center;" border="1px">
+            <tr>
+                <td>Código</td>
+                <td>Nombre</td>
+                <td>Grupo</td>
+                <td>Entrada</td>
+                <td>Salida</td>
+                <td>Modo</td>
+                <td>Día</td>
+                <td>Profesor</td>
+                <td>Salón</td>
+            </tr>
+            <tr id="fila_horarios">
+                <td>202W1003T</td>
+                <td>PRÁCTICA PRE PROFESIONAL</td>
+                <td>1</td>
+                <td>14:00</td>
+                <td>16:00</td>
+                <td>TEO</td>
+                <td>Sábado</td>
+                <td>MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH </td>
+                <td>105</td>
+            </tr>
+            <tr id="fila_horarios">
+                <td>202W0701T</td>
+                <td>ARQUITECTURA DE SOFTWARE</td>
+                <td>1</td>
+                <td>8:00</td>
+                <td>12:00</td>
+                <td>TEO</td>
+                <td>Sábado</td>
+                <td>MENENDEZ MUERAS, ROSA </td>
+                <td>102</td>
+            </tr>
+            <tr id="fila_horarios">
+                <td>202W0705</td>
+                <td>INTELIGENCIA ARTIFICIAL</td>
+                <td>1</td>
+                <td>14:00</td>
+                <td>18:00</td>
+                <td>TEO</td>
+                <td>Lúnes</td>
+                <td>GAMARRA MORENO, JUAN</td>
+                <td>104</td>
+            </tr>
+            <tr id="fila_horarios">
+                <td>202W0804</td>
+                <td>MINERÍA DE DATOS</td>
+                <td>2</td>
+                <td>16:00</td>
+                <td>22:00</td>
+                <td>TEO</td>
+                <td>Martes</td>
+                <td>CALDERON VILCA, HUGO DAVID</td>
+                <td>106</td>
+            </tr>
+            <tr id="fila_horarios">
+                <td>202W0905</td>
+                <td>GESTIÓN RIESGO DEL SW</td>
+                <td>1</td>
+                <td>16:00</td>
+                <td>22:00</td>
+                <td>TEO</td>
+                <td>Viernes</td>
+                <td>MACHADO VICENTE, JOEL FERNANDO</td>
+                <td>209</td>
+            </tr>
+        <!-- Agrega más filas según sea necesario -->
+        </table>
+    </div>
+    </div>
+
+<!--Boton salones-->
+    <div>
+        <button id="mostrarInfo" style="background-color: #efe4b0;">105</button>
+    </div>
+    <div>
+    <button id="mostrarInfo2" style="background-color: #efe4b0;">106</button>
+    </div>
+<!-- Contenido salones--> 
+    <!-- Salón 105-->
+    <div id="ventanaEmergenteSalon" class="ventana">
+        <div class="contenido_ventana_salon">
+            <span class="cerrar" id="cerrarSalonBtn">&times;</span>
+            <img src="../../public/img/Salon1.png" alt="Imagen del salón" style="max-width: 100%; max-height: 80vh;">
+            <div class="info_salon">
+                <p class="cabecera_salon">Salón 105
+                <table class="tabla_infosalon">
                     <tr>
-                        <th>Aula</th>
-                        <th>Piso</th>
-                        <th>Pabellón</th>
+                    <td><u><b>DETALLES:</b></u></td>
                     </tr>
                     <tr>
-                        <td id="aula">Aula 101</td>
-                        <td id="piso">2</td>
-                        <td id="pabellon">Antiguo Pabellón</td>
+                    <td>Pabellón Antiguo</td>
+                    </tr>
+                    <tr>
+                    <td>Aforo: 40 personas</td>
+                    </tr>
+                    <tr>
+                    <td>Primer piso</td>
+                    </tr>
+                    <tr>
+                    <td><u><b>ACTIVIDADES:</b></u></td>
+                    </tr>
+                    <tr>
+                    <td>Curso: 202W1003</td>
+                    </tr>
+                    <tr>
+                    <td>PRÁCTICA PRE PROFESIONAL</td>
+                    </tr>
+                    <tr>
+                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
+                    </tr>
+                    <tr>
+                    <td>Matriculados: 25 estudiantes</td>
+                    </tr>
+                    <tr>
+                    <td>Día: Sábado</td>
+                    </tr>
+                    <tr>
+                    <td>Hora Teoría: 14:00 a 18:00</td>
+                    </tr>
+                    <tr>
+                    <td>Hora Laboratorio: 18:00 a 20:00</td>
+                    </tr>
+                    <p></p>
+                    <table class="tabla_infosalon">
+                    <p></p>
+                    <p></p>
+                    <b>----------------------</b>
+                    <p></p>
+                    <td>Curso: 202W1003</td>
+                    </tr>
+                    <tr>
+                    <td>PRÁCTICA PRE PROFESIONAL</td>
+                    </tr>
+                    <tr>
+                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
+                    </tr>
+                    <tr>
+                    <td>Matriculados: 25 estudiantes</td>
+                    </tr>
+                    <tr>
+                    <td>Día: Sábado</td>
+                    </tr>
+                    <tr>
+                    <td>Hora Teoría: 14:00 a 18:00</td>
+                    </tr>
+                    <tr>
+                    <td>Hora Laboratorio: 18:00 a 20:00</td>
                     </tr>
                 </table>
+            </div>
         </div>
-        </center>
     </div>
 
-    <!-- Hacer la unión con el botón Agregar curso de CRUD AREAS"  (modificar si hace falta) -->
-    <button id="btnAgregarCurso" onclick="mostrarModalAgregarCurso()">Agregar curso</button>
-
-    <!-- Pantalla de Agregar/Modificar Áreas (no olvidar meter el botón para que se vea )-->
-    <div id="pantalla_agregar_modificar_areas" class="modal">
-        <div class="cuadro-pequeno">
-            
-            <!-- Agrega el botón "x" para cerrar la ventana modal -->
-            <span class="cerrar" id="cerrarModal">&times;</span>
-
-            <h2>DATOS DEL CURSO</h2>
-            <label for="codigo">Código:</label>
-            <input type="text" id="codigo" name="codigo"><br>
-
-            <label for="area">Área:</label>
-            <select id="area" name="area">
-                <option value="opcion1">Opción 1</option>
-                <option value="opcion2">Opción 2</option>
-                <option value="opcion3">Opción 3</option>
-            </select><br>
-
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre"><br>
-
-            <label for="grupo">Grupo:</label>
-            <select id="grupo" name="grupo">
-                <option value="1">1</option>
-                <option value="2">2</option>
-            </select><br>
-
-            <label for="modo">Modo:</label>
-            <select id="modo" name="modo">
-                <option value="Virtual">Virtual</option>
-                <option value="Presencial">Presencial</option>
-            </select><br>
-
-            <label for="dia">Día:</label>
-            <select id="dia" name="dia">
-                <option value="Lunes">Lunes</option>
-                <option value="Martes">Martes</option>
-                <option value="Miércoles">Miércoles</option>
-                <option value="Jueves">Jueves</option>
-                <option value="Viernes">Viernes</option>
-                <option value="Sábado">Sábado</option>
-            </select><br>
-
-            <label for="hora_inicio">Hora inicio:</label>
-            <input type="time" id="hora_inicio" name="hora_inicio"><br>
-
-            <label for="hora_fin">Hora fin:</label>
-            <input type="time" id="hora_fin" name="hora_fin"><br>
-
-            <button id="btnListo" onclick="guardarDatos()">Listo</button>
-        </div> 
+    <!-- Salón 106-->
+    <div id="ventanaEmergenteSalon2" class="ventana">
+        <div class="contenido_ventana_salon2">
+            <span class="cerrar" id="cerrarSalonBtn2">&times;</span>
+            <img src="../../public/img/Salon2.png" alt="Imagen del salón" style="max-width: 100%; max-height: 80vh;">
+            <div class="info_salon">
+                <p class="cabecera_salon">Salón 106
+                <table class="tabla_infosalon">
+                    <tr>
+                    <td><u><b>DETALLES:</b></u></td>
+                    </tr>
+                    <tr>
+                    <td>Pabellón Antiguo</td>
+                    </tr>
+                    <tr>
+                    <td>Aforo: 40 personas</td>
+                    </tr>
+                    <tr>
+                    <td>Primer piso</td>
+                    </tr>
+                    <tr>
+                    <td><u><b>ACTIVIDADES:</b></u></td>
+                    </tr>
+                    <tr>
+                    <td>Curso: 202W1003</td>
+                    </tr>
+                    <tr>
+                    <td>PRÁCTICA PRE PROFESIONAL</td>
+                    </tr>
+                    <tr>
+                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
+                    </tr>
+                    <tr>
+                    <td>Matriculados: 25 estudiantes</td>
+                    </tr>
+                    <tr>
+                    <td>Día: Sábado</td>
+                    </tr>
+                    <tr>
+                    <td>Hora Teoría: 14:00 a 18:00</td>
+                    </tr>
+                    <tr>
+                    <td>Hora Laboratorio: 18:00 a 20:00</td>
+                    </tr>
+                    <p></p>
+                    <table class="tabla_infosalon">
+                    <p></p>
+                    <p></p>
+                    <b>----------------------</b>
+                    <p></p>
+                    <td>Curso: 202W1003</td>
+                    </tr>
+                    <tr>
+                    <td>PRÁCTICA PRE PROFESIONAL</td>
+                    </tr>
+                    <tr>
+                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
+                    </tr>
+                    <tr>
+                    <td>Matriculados: 25 estudiantes</td>
+                    </tr>
+                    <tr>
+                    <td>Día: Sábado</td>
+                    </tr>
+                    <tr>
+                    <td>Hora Teoría: 14:00 a 18:00</td>
+                    </tr>
+                    <tr>
+                    <td>Hora Laboratorio: 18:00 a 20:00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-
-
-    <<!--coloqué esto aquí, pero iría en el usu_controlador-->
-    <script>
-
-        // Función para mostrar los horarios
-        function mostrarHorarios() {
-            var pantallaHorario = document.getElementById('pantalla_horario');
-            pantallaHorario.style.display = 'block';
-        }
-
-        // Función para cerrar los horarios
-        function cerrarHorarios() {
-            var pantallaHorario = document.getElementById('pantalla_horario');
-            pantallaHorario.style.display = 'none';
-        }
-    </script>
-    
-    <script>
-            // Función para mostrar el modal
-            function mostrarModalAgregarArea() {
-                var modal = document.getElementById('pantalla_agregar_modificar_areas');
-                modal.style.display = 'block';
-            }
-
-            // Función para cerrar el modal
-            function cerrarModalAgregarArea() {
-                var modal = document.getElementById('pantalla_agregar_modificar_areas');
-                modal.style.display = 'none';
-            }
-
-    </script>
+    <!--AGREGAR BOOTSTRAP (JSCRIPT)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="../../public/js/mapa.js"></script>
 
     <script>
-        // Función para mostrar el modal de agregar curso
-        function mostrarModalAgregarCurso() {
-            var modal = document.getElementById('pantalla_agregar_modificar_areas');
-            modal.style.display = 'block';
-        }
+// Variables para botón 105
+var botonAula105 = document.getElementById('mostrarInfo');
+var ventanaEmergenteSalon = document.getElementById('ventanaEmergenteSalon');
+var cerrarSalonBtn = document.getElementById('cerrarSalonBtn');
 
-        // Función para cerrar el modal de agregar curso
-        function cerrarModalAgregarCurso() {
-            var modal = document.getElementById('pantalla_agregar_modificar_areas');
-            modal.style.display = 'none';
-        }
-    </script>
+// Variables para botón 106
+var botonAula106 = document.getElementById('mostrarInfo2');
+var ventanaEmergenteSalon2 = document.getElementById('ventanaEmergenteSalon2');
+var cerrarSalonBtn2 = document.getElementById('cerrarSalonBtn2');
+
+// Variables para Vista Horario
+var botonMostrarHorario = document.getElementById('vista_horario');
+var ventanaEmergenteHorario = document.getElementById('ventanaEmergenteHorario');
+var cerrarVentanaHorarioBtn = document.getElementById('cerrarVentanaHorarioBtn');
+
+// Función para ocultar ventana y mostrar botón
+function ocultarVentanaYMostrarBoton(ventana, boton) {
+    ventana.style.display = 'none';
+    boton.style.display = 'block';
+}
+
+// Agrega un evento de clic al botón "105"
+botonAula105.addEventListener('click', function() {
+    ventanaEmergenteSalon.style.display = 'block';
+    botonAula105.style.display = 'block';
+    botonMostrarHorario.style.display = 'none';
+    botonAula105.style.borderWidth = '13px';
+    botonAula105.style.borderColor = '#68141C';
+    botonAula105.style.borderStyle = 'solid';
+});
+
+// Agrega un evento de clic al botón de cierre de la ventana del salón 105
+cerrarSalonBtn.addEventListener('click', function() {
+    ocultarVentanaYMostrarBoton(ventanaEmergenteSalon, botonAula105);
+    ocultarVentanaYMostrarBoton(ventanaEmergenteSalon, botonMostrarHorario);
+    botonAula105.style.borderWidth = '2px';
+    botonAula105.style.borderColor = 'black';
+    botonAula105.style.borderStyle = 'solid';
+});
+
+// Agrega un evento de clic al botón "106"
+botonAula106.addEventListener('click', function() {
+    ventanaEmergenteSalon2.style.display = 'block';
+    botonAula106.style.display = 'block';
+    botonMostrarHorario.style.display = 'none';
+    botonAula106.style.borderWidth = '13px';
+    botonAula106.style.borderColor = '#68141C';
+    botonAula106.style.borderStyle = 'solid';
+});
+
+// Agrega un evento de clic al botón de cierre de la ventana del salón 106
+cerrarSalonBtn2.addEventListener('click', function() {
+    ocultarVentanaYMostrarBoton(ventanaEmergenteSalon2, botonAula106);
+    ocultarVentanaYMostrarBoton(ventanaEmergenteSalon2, botonMostrarHorario);
+    botonAula106.style.borderWidth = '2px';
+    botonAula106.style.borderColor = 'black';
+    botonAula106.style.borderStyle = 'solid';
+});
+
+// Agrega un evento de clic al botón "Vista horario"
+botonMostrarHorario.addEventListener('click', function() {
+    ventanaEmergenteHorario.style.display = 'block';
+    botonMostrarHorario.style.display = 'none';
+    botonAula105.style.display = 'none';
+    botonAula106.style.display = 'none';
+});
+
+// Agrega un evento de clic al botón de cierre de la ventana de horario
+cerrarVentanaHorarioBtn.addEventListener('click', function() {
+    ventanaEmergenteHorario.style.display = 'none';
+    botonMostrarHorario.style.display = 'block';
+    botonAula105.style.display = 'block';
+    botonAula106.style.display = 'block';
+});
+</script>
+
+
+
 
 </body>
-
- <!-- NO OLVIDES Incluir el archivo controlador -->
-
 <script type="text/javascript" src="../../public/js/mapa_config.js"></script>
+
 
 </html>
