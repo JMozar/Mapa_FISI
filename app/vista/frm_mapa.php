@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +7,6 @@
     <link rel="stylesheet" href="../../public/css/estilo_mapa.css">
     <link rel="stylesheet" href="../../public/css/estilo_horarios.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
-
-
-
     <!--API de mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -18,7 +14,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
 </head>
-
 <body>
     <!--Parte superior de la página-->
     <header>
@@ -27,7 +22,6 @@
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
         </div>
     </header>
-
         <!-- BÚSQUEDA-->
         <form class="buscador d-flex" role="search">
             <input id="txtSearch" class="form-control me-2" type="search" placeholder="¿A donde vamos?"
@@ -42,8 +36,6 @@
 
     <div id="pantalla_mapa">
         <!--Pantala principal del mapa-->
-
-
 
         <div class="navegador">
             <button type="button">1</button>
@@ -305,23 +297,19 @@
 var botonAula105 = document.getElementById('mostrarInfo');
 var ventanaEmergenteSalon = document.getElementById('ventanaEmergenteSalon');
 var cerrarSalonBtn = document.getElementById('cerrarSalonBtn');
-
 // Variables para botón 106
 var botonAula106 = document.getElementById('mostrarInfo2');
 var ventanaEmergenteSalon2 = document.getElementById('ventanaEmergenteSalon2');
 var cerrarSalonBtn2 = document.getElementById('cerrarSalonBtn2');
-
 // Variables para Vista Horario
 var botonMostrarHorario = document.getElementById('vista_horario');
 var ventanaEmergenteHorario = document.getElementById('ventanaEmergenteHorario');
 var cerrarVentanaHorarioBtn = document.getElementById('cerrarVentanaHorarioBtn');
-
 // Función para ocultar ventana y mostrar botón
 function ocultarVentanaYMostrarBoton(ventana, boton) {
     ventana.style.display = 'none';
     boton.style.display = 'block';
 }
-
 // Agrega un evento de clic al botón "105"
 botonAula105.addEventListener('click', function() {
     ventanaEmergenteSalon.style.display = 'block';
@@ -331,7 +319,6 @@ botonAula105.addEventListener('click', function() {
     botonAula105.style.borderColor = '#68141C';
     botonAula105.style.borderStyle = 'solid';
 });
-
 // Agrega un evento de clic al botón de cierre de la ventana del salón 105
 cerrarSalonBtn.addEventListener('click', function() {
     ocultarVentanaYMostrarBoton(ventanaEmergenteSalon, botonAula105);
@@ -340,7 +327,6 @@ cerrarSalonBtn.addEventListener('click', function() {
     botonAula105.style.borderColor = 'black';
     botonAula105.style.borderStyle = 'solid';
 });
-
 // Agrega un evento de clic al botón "106"
 botonAula106.addEventListener('click', function() {
     ventanaEmergenteSalon2.style.display = 'block';
@@ -350,7 +336,6 @@ botonAula106.addEventListener('click', function() {
     botonAula106.style.borderColor = '#68141C';
     botonAula106.style.borderStyle = 'solid';
 });
-
 // Agrega un evento de clic al botón de cierre de la ventana del salón 106
 cerrarSalonBtn2.addEventListener('click', function() {
     ocultarVentanaYMostrarBoton(ventanaEmergenteSalon2, botonAula106);
@@ -359,7 +344,6 @@ cerrarSalonBtn2.addEventListener('click', function() {
     botonAula106.style.borderColor = 'black';
     botonAula106.style.borderStyle = 'solid';
 });
-
 // Agrega un evento de clic al botón "Vista horario"
 botonMostrarHorario.addEventListener('click', function() {
     ventanaEmergenteHorario.style.display = 'block';
@@ -367,7 +351,6 @@ botonMostrarHorario.addEventListener('click', function() {
     botonAula105.style.display = 'none';
     botonAula106.style.display = 'none';
 });
-
 // Agrega un evento de clic al botón de cierre de la ventana de horario
 cerrarVentanaHorarioBtn.addEventListener('click', function() {
     ventanaEmergenteHorario.style.display = 'none';
@@ -376,12 +359,7 @@ cerrarVentanaHorarioBtn.addEventListener('click', function() {
     botonAula106.style.display = 'block';
 });
 </script>
-
-
-
-
 </body>
 <script type="text/javascript" src="../../public/js/mapa_config.js"></script>
-
 
 </html>
