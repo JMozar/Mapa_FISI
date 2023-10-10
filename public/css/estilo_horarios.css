@@ -1,5 +1,4 @@
 /*Estilos de la ventana de horarios*/
-
 #ventanaEmergenteHorario {
     border-radius: 20px;
     display: none;
@@ -45,7 +44,6 @@
     color:#68141C;
     font-family: 'Roboto', sans-serif;
 }
-
 /*Intenté que se vea el botón con la imagen pero por algú*/
 .cerrar_ventana {
     position: absolute;
@@ -54,7 +52,6 @@
     cursor: pointer;
     font-size: 40px; 
 }
-
 /*Estilo del boton Vista Horario*/
 #vista_horario{
     background-color: #68141C;
@@ -73,7 +70,6 @@
     height: 60%;
     line-height: 3;
 }
-
 .titulo-horario {
     font-family: 'Roboto', sans-serif;
     /* Agrega otros estilos para el título si lo necesitas */
