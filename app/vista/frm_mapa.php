@@ -38,13 +38,22 @@
     <div id="pantalla_mapa" >
         <!--Pantala principal del mapa-->        
         <div class="botones" id="cambia_MapaHorario">
-            <button type="button" onclick="cambia_mapa_horario()">Ver Horario</button>
+            <button type="button">Ver Horario</button>
         </div>
 
         <div id="temporal">
             <button type="button" onclick="mostrarRuta()">Ruta</button>
         </div>
+
+    <!--Boton salones-->
+    <div class=botones_salon>
+        <button id="mostrarInfo" style="background-color: #efe4b0;">105</button>
+        <button id="mostrarInfo2" style="background-color: #efe4b0;">106</button>
+    </div>
+
      </div>
+
+    
   
 <!-- Zonas flotantes-->    
   <div class="navegador">
@@ -57,10 +66,7 @@
          <button type="button">-</button>
     </div>
   
-<!-- función para vista horarios-->
-<div>
-    <button id="vista_horario">Vista horario</button>
-    </div>
+
 
 
     <div id="ventanaEmergenteHorario" style="display: none;">
@@ -143,13 +149,7 @@
     </div>
     </div>
 
-<!--Boton salones-->
-    <div>
-        <button id="mostrarInfo" style="background-color: #efe4b0;">105</button>
-    </div>
-    <div>
-    <button id="mostrarInfo2" style="background-color: #efe4b0;">106</button>
-    </div>
+
 <!-- Contenido salones--> 
     <!-- Salón 105-->
     <div id="ventanaEmergenteSalon" class="ventana">
@@ -305,9 +305,9 @@
      <!--Vista de rutas-->
     <div id="ruta" style="display: none;">
         <div id=central>
-            <button type="button">a</button>
+            <button type="button"></button>
             <img src="" alt="imagen RUTA">
-            <button type="button">a</button>
+            <button type="button"></button>
         </div>
         <div id=aceptar>
             <button type="button" onclick="mostrarMapa()">Aceptar</button>
@@ -332,7 +332,7 @@ var botonAula106 = document.getElementById('mostrarInfo2');
 var ventanaEmergenteSalon2 = document.getElementById('ventanaEmergenteSalon2');
 var cerrarSalonBtn2 = document.getElementById('cerrarSalonBtn2');
 // Variables para Vista Horario
-var botonMostrarHorario = document.getElementById('vista_horario');
+var botonMostrarHorario = document.getElementById('cambia_MapaHorario');
 var ventanaEmergenteHorario = document.getElementById('ventanaEmergenteHorario');
 var cerrarVentanaHorarioBtn = document.getElementById('cerrarVentanaHorarioBtn');
 // Función para ocultar ventana y mostrar botón

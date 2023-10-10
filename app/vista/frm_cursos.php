@@ -27,15 +27,11 @@
     </script>
 </head>
 <body id="body">
-    <header>
+<header>
         <div id="cabecera">
-            <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI" >
-            <h3 style="position: relative; left: 25px;top: 30px;" class="header-text">Mapa interactivo de la FISI</h3>
-            <div class="boton-bloque-acceder"
-             onclick="accionBoton1()">
-             <img src="/public/img/cuenta.png" style="height: 50px; position: relative;right: 10px;">
-             Acceder
-            </div>
+            <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
+            <h3>Mapa Interactivo de la FISI</h3>
+            <button><img src="../../public/img/usuario.png" alt="imagen">Acceder</button>   
         </div>
     </header>
     <div class="contenedor">

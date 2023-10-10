@@ -9,10 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     botonMostrar.addEventListener("click", function () {
         ventanaEmergente.style.display = "block";
     });
-
-    botonCerrar.addEventListener("click", function () {
-        ventanaEmergente.style.display = "none";
-    });
 });
 
 

@@ -6,21 +6,57 @@ body {
 }
 
 /* Establece un estilo para el encabezado */
-header {
+/*Estilos cabecera*/
+header{
+    height: 10%;
+    width: 100%;
+    display: block;
     background-color: #68141C;
-    display: flex;
-    align-items: center;
-    color: #fff;
-    padding-left: 30px;
 }
+/*contenedor del header*/
+ #cabecera{
+    position: relative;
+    margin-top: auto;
+    display: flex;
+    padding: 0 auto;
+    color: #fff;
+ }
+ #cabecera h3{
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #fff;
+ }
+/*imagen dentro del header*/
+#cabecera img{
+    width: 5%;
+    left: 15px;
+}
+
+/*Boton dentro del header*/
+#cabecera button{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+    background-color: #68141C;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0 0.5rem;
+}
+
+#cabecera button img{
+    width: 50%;
+    inline-size: 50px;
+}
+
 .h2_aside{
     padding-left: 80px ;
     padding-top: 25px;
     color:#68141C;
 }
-.header-text{
-    width: 500px;
-}
+
 .tabla_aside{
     position: relative;
     top: -30px;
@@ -39,11 +75,7 @@ header {
     padding-top: 10px;
 }
 
-/* Establece un estilo para la imagen dentro del encabezado */
-header img {
-    max-width: 100px;
-    height: auto;
-}
+
 
 /* Establece un estilo para el artículo principal */
 article {
@@ -131,9 +163,7 @@ footer {
     color: white;
 }
 
-#cabecera{
-    display: flex; 
-}
+
 
 a{
     text-decoration: none;

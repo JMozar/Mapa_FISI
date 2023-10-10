@@ -119,30 +119,26 @@ position: relative;
     height: 30px;
     font-size: 1em;
 }
-
-/*Estilo boton salón 105*/
-#mostrarInfo{
+/*Contenedor de los botones de salon*/
+.botones_salon{
     position: absolute;
-    width: 140px;
-    height:140px;
     z-index: 1;
+    right: 50%;
     bottom: 50%;
-    left: 23%;
-    font-size: 40px;
 }
-/* Estilo del botón 106 */
-#mostrarInfo2 {
-    position: absolute;
-    width: 140px;
-    height: 140px;
+
+/*Estilo boton salón 105,106*/
+.botones_salon button{
+    display: block;
+    width: 5rem;
+    height:5rem;
     z-index: 1;
-    bottom: 34.4%;
-    left: 23%;
-    font-size: 40px;
-    margin-top: 10px; /* Espacio entre los botones */
+    font-size: 3em;
 }
+
 /*Estilo del boton Vista Horario*/
 #vista_horario{
+    z-index: 1;
     background-color: #68141C;
     color: white;
     text-align: center;
