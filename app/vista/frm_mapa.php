@@ -37,7 +37,7 @@
             <!-- Aquí se agregarán los elementos coincidentes -->
         </ul>
 
-    <div id="pantalla_mapa" style="display: none;>
+    <div id="pantalla_mapa" >
         <!--Pantala principal del mapa-->
 
 
@@ -119,7 +119,7 @@
         </center>
     </div>
 
-    <div id="ruta">
+    <div id="ruta" style="display: none;">
         <div id=central>
             <button type="button">a</button>
             <img src="" alt="imagen RUTA">

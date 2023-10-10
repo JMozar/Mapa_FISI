@@ -271,12 +271,12 @@ table {
 
 #central{
     display: flex;
-    height: 80%;
+    height: 75%;
     position: absolute;
     top: 50%;
     right: 50%;
     transform: translate(50%,-50%);
-    background-color: #1a1468;
+    background-color: #68141C;
     width: 60%;
 }
 
@@ -300,9 +300,9 @@ table {
 
 #aceptar button{
     position: relative;
-    background-color: #68141C;
-    border-radius: 30px;
-    color: #fff;
     font-size: 1.2em;
-    padding: 0 0.5rem;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    background-color: #68141C;
+    color: #fff;
 }
