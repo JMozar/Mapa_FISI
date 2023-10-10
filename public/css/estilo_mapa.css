@@ -27,7 +27,6 @@ header{
     width: 5%;
     left: 15px;
 }
-
 /*Estilos del mapa*/
 #pantalla_mapa{
 width: 100%;
@@ -39,7 +38,6 @@ position: relative;
     position: absolute;
     z-index: 1;
 }
-
 /*Estilos clase botones*/
 .botones{
     position: absolute;
@@ -59,7 +57,6 @@ position: relative;
     right: 10px;
     bottom: 50%;
 }
-
 /*Estilo de los botones de los pisos*/
 .navegador button{
     width: 50px;
@@ -76,7 +73,6 @@ position: relative;
     left: 23%;
     font-size: 40px;
 }
-
 /* Estilo del botón 106 */
 #mostrarInfo2 {
     position: absolute;
@@ -87,9 +83,7 @@ position: relative;
     left: 23%;
     font-size: 40px;
     margin-top: 10px; /* Espacio entre los botones */
- 
 }
-
 /*Estilo del boton Vista Horario*/
 #vista_horario{
     background-color: #68141C;
@@ -107,9 +101,6 @@ position: relative;
     width: 7%;
     height: 20%;
 }
-
-
-
 /*Estilo buscador dentro de la pantalla mapa*/
 .buscador{
     padding-top: 10px;
@@ -120,7 +111,6 @@ position: relative;
     /* height: 20px;
     padding-left: 10px; */
 }
-
 /*Estilos ventana emergente*/
 .ventana {
     display: none;
@@ -151,44 +141,37 @@ position: relative;
     right: 15px;
     cursor: pointer;
     font-size: 40px; 
-
 }
 table {
     width: 100%; 
     font-size: 150%;
     table-layout: fixed; 
 }
-
 /* BARRA DE BÚSQUEDA */
 #searchResults{
     margin-top: 60px;
     position: absolute;
     z-index: 2;
 }
-
 #searchResults li {
     background-color: white;
     padding: 7px 2px 7px 2px;
     list-style-type: none;
     border: 2px solid;
 }
-
 #searchResults li:hover {
     background-color: rgb(49, 214, 115);
 }
-
 #searchResults a {
     text-decoration: none;
     cursor: pointer;
     color: rgb(0, 0, 0);
 }
-
 table {
     width: 100%; 
     font-size: 100%;/*Antes estaba en 150%*/
     table-layout: fixed; 
 }
-
 /*Cabecera info salón*/
 .cabecera_salon {
     background-color: #68141C;
@@ -199,8 +182,6 @@ table {
     height: 100%;
     font-size: 30px; /* Tamaño de fuente más grande para la cabecera */
 }
-
-
 /* Estilo para la tabla de info de salón */
 .tabla_infosalon {
     max-height: 200px; 
@@ -208,33 +189,25 @@ table {
     border-collapse: collapse; 
     width: 100%; 
 }
-
-
-
 /* Añade estilos adicionales a la tabla, si es necesario */
 .tabla-horarios table {
     width: 100%;
     border-collapse: collapse;
 }
-
 .tabla-horarios th, .tabla-horarios td {
     padding: 8px;
     text-align: center;
 }
-
 .tabla-horarios th {
     background-color: cadetblue;
     color: white;
 }
-
 .tabla-horarios tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-
 .tabla-horarios tr:hover {
     background-color: #ddd;
 }
-
 .tabla-horarios button {
     height: 30px;
     width: 80px;
@@ -243,7 +216,6 @@ table {
 #mostrarHorario {
     z-index: 1; /* Un valor mayor que otros elementos si es necesario */
 }
-
 .oculto {
     display: none;
 }
