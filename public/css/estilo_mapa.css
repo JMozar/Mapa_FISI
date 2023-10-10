@@ -36,6 +36,7 @@ header{
     width: 5%;
     left: 15px;
 }
+
 /*Boton dentro del header*/
 #cabecera button{
     position: absolute;
@@ -54,7 +55,6 @@ header{
     inline-size: 50px;
 }
 
-
 /*Estilos del mapa*/
 #pantalla_mapa{
 width: 100%;
@@ -66,7 +66,6 @@ position: relative;
     position: absolute;
     z-index: 1;
 }
-
 /*Estilos clase botones*/
 .botones{
     position: absolute;
@@ -99,7 +98,6 @@ position: relative;
     right: 1rem;
     bottom: 5rem;
 }
-
 /*Estilo de los botones de los pisos*/
 .navegador button{
     font-size: 1.2em;
@@ -107,6 +105,7 @@ position: relative;
     height: 30px;
     display: block;
 }
+
 /*Estilo de los botones de zoom*/
 .zoom{
     position: absolute;
@@ -120,21 +119,45 @@ position: relative;
     height: 30px;
     font-size: 1em;
 }
-/*Estilo boton mostrar info*/
+
+/*Estilo boton salón 105*/
 #mostrarInfo{
     position: absolute;
-    width: 80px;
-    height: 70px;
+    width: 140px;
+    height:140px;
     z-index: 1;
     bottom: 50%;
-    right: 50%;
+    left: 23%;
+    font-size: 40px;
 }
-/*Estilo del boton ára cambiar de pantalla de mapa a horarios*/
-#cambia_horarioMapa button{
-    height: 30px;
-    width: 80px;
+/* Estilo del botón 106 */
+#mostrarInfo2 {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    z-index: 1;
+    bottom: 34.4%;
+    left: 23%;
+    font-size: 40px;
+    margin-top: 10px; /* Espacio entre los botones */
 }
-
+/*Estilo del boton Vista Horario*/
+#vista_horario{
+    background-color: #68141C;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 50px;
+    cursor: pointer;
+    border-radius: 5px; /* Ajusta el valor para bordes menos redondeados */
+    border: 1px solid black;
+    position: relative;
+    bottom: 55px;
+    left: 10%;
+    font-size: 100%;
+    width: 7%;
+    height: 20%;
+}
 /*Estilo buscador dentro de la pantalla mapa*/
 .buscador{
     padding-top: 10px;
@@ -145,28 +168,29 @@ position: relative;
     /* height: 20px;
     padding-left: 10px; */
 }
-
 /*Estilos ventana emergente*/
 .ventana {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    top: 20%;
+    left: 20px;
+    width: 20%;
+    max-height: 70%; /* Altura máxima deseada de la ventana emergente */
+    overflow: auto; /* Agrega barras de desplazamiento si es necesario */
     z-index: 1;
+    background-color: #ddd;
 }
-.contenido_ventana {
-    background-color: #fff;
+.ventana_horarios {
+    background-color: #FFF7E7;
     border-radius: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 40%;
+    height: 60%;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .cerrar {
     position: absolute;
@@ -174,89 +198,86 @@ position: relative;
     right: 15px;
     cursor: pointer;
     font-size: 40px; 
-
 }
 table {
     width: 100%; 
     font-size: 150%;
     table-layout: fixed; 
 }
-
 /* BARRA DE BÚSQUEDA */
 #searchResults{
     margin-top: 60px;
     position: absolute;
     z-index: 2;
 }
-
 #searchResults li {
     background-color: white;
     padding: 7px 2px 7px 2px;
     list-style-type: none;
     border: 2px solid;
 }
-
 #searchResults li:hover {
     background-color: rgb(49, 214, 115);
 }
-
 #searchResults a {
     text-decoration: none;
     cursor: pointer;
     color: rgb(0, 0, 0);
 }
-
 table {
     width: 100%; 
     font-size: 100%;/*Antes estaba en 150%*/
     table-layout: fixed; 
 }
-
-/* Estilo para la tabla de horarios */
-.tabla-horarios {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 80%; /* Ancho máximo deseado de la ventana de horarios */
-    max-height: 80%; /* Altura máxima deseada de la ventana de horarios */
-    overflow: auto; /* Agrega barras de desplazamiento si es necesario */
-    background-color: white;
-    padding: 20px;
-    border: 2px solid cadetblue;
-    z-index: 2; /* Asegura que la ventana esté por encima del mapa */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Agrega sombra */
+/*Cabecera info salón*/
+.cabecera_salon {
+    background-color: #68141C;
+    color: white;
+    text-align: left;
+    padding-left: 10%;
+    width: 100%;
+    height: 100%;
+    font-size: 30px; /* Tamaño de fuente más grande para la cabecera */
 }
-
+/* Estilo para la tabla de info de salón */
+.tabla_infosalon {
+    max-height: 200px; 
+    overflow-y: auto; 
+    border-collapse: collapse; 
+    width: 100%; 
+}
 /* Añade estilos adicionales a la tabla, si es necesario */
 .tabla-horarios table {
     width: 100%;
     border-collapse: collapse;
 }
-
 .tabla-horarios th, .tabla-horarios td {
     padding: 8px;
     text-align: center;
 }
-
 .tabla-horarios th {
     background-color: cadetblue;
     color: white;
 }
-
 .tabla-horarios tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-
 .tabla-horarios tr:hover {
     background-color: #ddd;
 }
-
 .tabla-horarios button {
     height: 30px;
     width: 80px;
     margin-top: 10px;
 }
+
+#mostrarHorario {
+    z-index: 1; /* Un valor mayor que otros elementos si es necesario */
+}
+.oculto {
+    display: none;
+}
+
 
 /*Estilos para mostrar las rutas*/
 
@@ -312,3 +333,4 @@ table {
     right: 50px;
     z-index: 1;
 }
+
