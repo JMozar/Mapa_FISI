@@ -19,8 +19,9 @@
     <!--Parte superior de la página-->
     <header>
         <div id="cabecera">
-            <h3>Mapa de la fisi</h3>
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
+            <h3>Mapa Interactivo de la FISI</h3>
+            <button><img src="../../public/img/usuario.png" alt="imagen">Acceder</button>   
         </div>
     </header>
 
@@ -36,22 +37,27 @@
             <!-- Aquí se agregarán los elementos coincidentes -->
         </ul>
 
-    <div id="pantalla_mapa">
+    <div id="pantalla_mapa" >
         <!--Pantala principal del mapa-->
 
 
         
-        <div class="botones" id="cambia_horarioMapa">
-            <button type="button" onclick="cambia_mapa_horario()">Horarios</button>
+        <div class="botones" id="cambia_MapaHorario">
+            <button type="button" onclick="cambia_mapa_horario()">Ver Horario</button>
         </div>
-        <div class="navegador">
-            <button type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
-        </div>
-        <button id="mostrarInfo">Mostrar Información del Aula</button>
+        
 
     </div>
+
+    <div class="navegador">
+            <button type="button">1P</button>
+            <button type="button">2P</button>
+            <button type="button">3P</button>
+        </div>
+        <div class="zoom">
+            <button type="button">+</button>
+            <button type="button">-</button>
+        </div>
 
     <div id="pantalla_horario" style="display: none;">
         <!-- Pantalla de los horarios -->
@@ -111,6 +117,18 @@
                 </table>
         </div>
         </center>
+    </div>
+
+    <div id="ruta" style="display: none;">
+        <div id=central>
+            <button type="button">a</button>
+            <img src="" alt="imagen RUTA">
+            <button type="button">a</button>
+        </div>
+        <div id=aceptar>
+            <button type="button">Aceptar</button>
+        </div>
+        
     </div>
 
     <!--AGREGAR BOOTSTRAP (JSCRIPT)-->

@@ -13,13 +13,22 @@ body{
 /*Estilos cabecera*/
 header{
     height: 10%;
-    background-color: royalblue;
+    width: 100%;
+    display: block;
+    background-color: #68141C;
 }
 /*contenedor del header*/
  #cabecera{
+    position: relative;
+    margin-top: auto;
     display: flex;
-    align-items: center;
-    padding-left: 15px;
+    padding: 0 auto;
+    color: #fff;
+ }
+ #cabecera h3{
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
     color: #fff;
  }
 /*imagen dentro del header*/
@@ -27,6 +36,24 @@ header{
     width: 5%;
     left: 15px;
 }
+/*Boton dentro del header*/
+#cabecera button{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+    background-color: #68141C;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0 0.5rem;
+}
+
+#cabecera button img{
+    width: 50%;
+    inline-size: 50px;
+}
+
 
 /*Estilos del mapa*/
 #pantalla_mapa{
@@ -45,26 +72,53 @@ position: relative;
     position: absolute;
     z-index: 1;
 }
+/*--------------------------------------------------------------------*/
 /*Estilo del boton de cambio de pantalla: mapa-horarios*/
-#cambia_horarioMapa{
+#cambia_MapaHorario{
+    position: absolute;
     bottom: 10px;
-    left: 50%;
+    left: 5%;
+    bottom: 5%;
     width: 100%;
     margin: 0 auto;
 }
+
+#cambia_MapaHorario button{
+    font-size: 1.2em;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    background-color: #68141C;
+    color: #fff;
+}
+/*--------------------------------------------------------------------*/
+
 /*Estilo del navegador de pisos*/
 .navegador{
     position: absolute;
     z-index: 1;
-    right: 10px;
-    bottom: 50%;
+    right: 1rem;
+    bottom: 5rem;
 }
 
 /*Estilo de los botones de los pisos*/
 .navegador button{
-    width: 50px;
-    height: 50px;
+    font-size: 1.2em;
+    width: 30px;
+    height: 30px;
     display: block;
+}
+/*Estilo de los botones de zoom*/
+.zoom{
+    position: absolute;
+    z-index: 1;
+    right: 1rem;
+    bottom: 1.2rem;
+}
+/*Estilo de los botones de los pisos*/
+.zoom button{
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
 }
 /*Estilo boton mostrar info*/
 #mostrarInfo{
@@ -202,4 +256,53 @@ table {
     height: 30px;
     width: 80px;
     margin-top: 10px;
+}
+
+/*Estilos para mostrar las rutas*/
+
+/* Establece un estilo para el contenedor principal */
+#ruta {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    position: relative;
+    background-color: #FFF7E7;
+}
+
+#central{
+    display: flex;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    background-color: #68141C;
+    width: 60%;
+}
+
+#central button{
+    height: 100%;
+    width: 3%;
+}
+#central img{
+    height: 100%;
+    width: 97%;
+}
+
+
+/**/
+#aceptar {
+    position: absolute;
+    bottom: 3%;
+    right: 50%;
+    transform: translate(50%,0);
+}
+
+#aceptar button{
+    position: relative;
+    font-size: 1.2em;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    background-color: #68141C;
+    color: #fff;
 }
