@@ -45,6 +45,10 @@
         <div class="botones" id="cambia_MapaHorario">
             <button type="button" onclick="cambia_mapa_horario()">Ver Horario</button>
         </div>
+
+        <div id="temporal">
+            <button type="button" onclick="mostrarRuta()">Ruta</button>
+        </div>
         
 
     </div>
@@ -126,7 +130,7 @@
             <button type="button">a</button>
         </div>
         <div id=aceptar>
-            <button type="button">Aceptar</button>
+            <button type="button" onclick="mostrarMapa()">Aceptar</button>
         </div>
         
     </div>

@@ -76,6 +76,16 @@ function realizarBusqueda() {
         console.error('Error al cargar el archivo:', error);
       });
   }
+
+function mostrarRuta(){
+    document.getElementById("pantalla_mapa").style.display="none";
+    document.getElementById("ruta").style.display="block";
+}
+
+function mostrarMapa(){
+  document.getElementById("pantalla_mapa").style.display="block";
+  document.getElementById("ruta").style.display="none";
+}
   
   
 

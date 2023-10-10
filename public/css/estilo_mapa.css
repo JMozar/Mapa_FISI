@@ -306,3 +306,9 @@ table {
     background-color: #68141C;
     color: #fff;
 }
+
+#temporal{
+    position: absolute;
+    right: 50px;
+    z-index: 1;
+}
