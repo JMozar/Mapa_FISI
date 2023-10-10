@@ -1,0 +1,183 @@
+/* Establece un estilo básico para el cuerpo de la página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Establece un estilo para el encabezado */
+header {
+    background-color: #68141C;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding-left: 30px;
+}
+.h2_aside{
+    padding-left: 80px ;
+    padding-top: 25px;
+    color:#68141C;
+}
+.header-text{
+    width: 500px;
+}
+.tabla_aside{
+    position: relative;
+    top: -30px;
+    left: 80px;
+    color:white;
+    background-color: #68141C;
+    height: 10%;
+    width: 92%;
+    text-align: center;
+}
+
+#fila{
+    background-color: #FFF7E7;
+    color: black;
+    font-size: 100%;
+    padding-top: 10px;
+}
+
+/* Establece un estilo para la imagen dentro del encabezado */
+header img {
+    max-width: 100px;
+    height: auto;
+}
+
+/* Establece un estilo para el artículo principal */
+article {
+    flex: 1;
+    background-color: white;
+    border: 1px solid black;
+    color: black; 
+}
+
+/* Establece un estilo para la barra lateral (aside) */
+aside {
+    flex: 7;
+    background-color: #FFF7E7;
+    color: black; 
+    height: 100vh; 
+}
+
+/* Establece un estilo para el contenedor principal */
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+/* Establece un estilo para el pie de página */
+footer {
+    background-color: black;
+    color: white;
+    height: 30px;
+    padding-left: 1px;
+}
+.tabla_aside img{
+    width: 20px;
+}
+/* Establece un estilo para los botones dentro del artículo */
+.boton-bloque {
+    width: 100%;
+    height: 10%;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    cursor: pointer; 
+}
+.boton-bloque-agregar {
+    background-color: #68141C;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid black; 
+    position: relative;
+    bottom: 50px; 
+    left: 87%; 
+    font-size: 100%;
+    line-height: 50px;
+    transform: translateY(0);
+    width: 10%;
+    height: 6%;
+}
+.boton-bloque-acceder {
+    background-color: #68141C;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 1px solid black; 
+    position: relative;
+    top: 18px; 
+    left: 1070px; 
+    font-size: 100%;
+    line-height: 50px;
+    width: 26%;
+    height: 6%;
+    cursor: pointer; 
+}
+/* Establece un estilo para el efecto hover en los botones */
+.boton-bloque:hover {
+    background-color: #68141C;
+    color: white;
+}
+
+#cabecera{
+    display: flex; 
+}
+
+a{
+    text-decoration: none;
+}
+.modal-dialog {
+    top: 15%; /* Posición vertical en el centro */
+}
+.modal-header {
+    color: #68141C; 
+}
+
+form {
+    display: flex; /* Utiliza un contenedor flexible */
+    flex-direction: row; /* Organiza los elementos en fila */
+    align-items: center; /* Centra verticalmente los elementos en la fila */
+    position: relative;
+    left: 5%;
+}
+#campo1, #campo2 {
+    
+    width: 270px; /* Ancho personalizado para "Identificador" */
+    border-radius: 5px;
+}
+#campo2 {
+    width: 130px; /* Ancho personalizado para "Identificador" */
+    position: relative;
+    right: 7%;  
+    border-radius: 5px; 
+}
+#campo3{
+    width: 430px;
+    border-radius: 5px;
+}
+#campo4,#campo5,#campo6{
+    width: 130px;
+    border-radius: 5px;
+}
+#campo6{
+    position: relative;
+    right: 15%;
+    border-radius: 5px;
+}
+#campo7{
+    width: 430px;
+    height: 80px;
+    border-radius: 5px;
+}
