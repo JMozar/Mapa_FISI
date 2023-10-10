@@ -37,7 +37,7 @@
             <!-- Aquí se agregarán los elementos coincidentes -->
         </ul>
 
-    <div id="pantalla_mapa">
+    <div id="pantalla_mapa" style="display: none;>
         <!--Pantala principal del mapa-->
 
 
@@ -45,7 +45,11 @@
         <div class="botones" id="cambia_MapaHorario">
             <button type="button" onclick="cambia_mapa_horario()">Ver Horario</button>
         </div>
-        <div class="navegador">
+        
+
+    </div>
+
+    <div class="navegador">
             <button type="button">1P</button>
             <button type="button">2P</button>
             <button type="button">3P</button>
@@ -54,10 +58,6 @@
             <button type="button">+</button>
             <button type="button">-</button>
         </div>
-
-        
-
-    </div>
 
     <div id="pantalla_horario" style="display: none;">
         <!-- Pantalla de los horarios -->
@@ -117,6 +117,18 @@
                 </table>
         </div>
         </center>
+    </div>
+
+    <div id="ruta">
+        <div id=central>
+            <button type="button">a</button>
+            <img src="" alt="imagen RUTA">
+            <button type="button">a</button>
+        </div>
+        <div id=aceptar>
+            <button type="button">Aceptar</button>
+        </div>
+        
     </div>
 
     <!--AGREGAR BOOTSTRAP (JSCRIPT)-->

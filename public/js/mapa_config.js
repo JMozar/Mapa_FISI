@@ -12,7 +12,7 @@ var geojson = {
     "features": [
         {
             "type": "Feature",
-            "properties": {},
+            "properties": {"tipo":"otro"},
             "geometry": {
                 "coordinates": [
                     [
@@ -43,7 +43,7 @@ var geojson = {
         },
         {
             "type": "Feature",
-            "properties": {},
+            "properties": {"tipo":"salon"},
             "geometry": {
                 "coordinates": [
                     [
@@ -90,7 +90,14 @@ map.on('load', () => {
                 'source': 'maine', // reference the data source
                 'layout': {},
                 'paint': {
-                    'fill-color': '#0080ff', // blue color fill
+                    'fill-color': [
+                        'match',
+                        ['get','tipo'],
+                        'otro','red',
+                        'salon','blue',
+                        'white'
+    
+                    ], // colores por tipos
                     'fill-opacity': 0.5
                 }
             });
@@ -102,7 +109,7 @@ map.on('load', () => {
             'layout': {},
             'paint': {
                 'line-color': '#000',
-                'line-width': 3
+                'line-width': 2
             }
         });
     });
