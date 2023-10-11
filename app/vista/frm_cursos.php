@@ -95,7 +95,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" style="position: relative;left: 25%; font-size: 28px;">DATOS DEL CUSO</h5>
+        <h5 class="modal-title" style="position: relative;left: 25%; font-size: 28px;">DATOS DEL CURSO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
           <span aria-hidden="true">&times;</span>
         </button>
