@@ -326,7 +326,16 @@ table {
 
 #temporal{
     position: absolute;
-    right: 50px;
+    right: 2rem;
+    top: 2rem;
     z-index: 1;
+    
+}
+#temporal button{
+    background-color: #68141C;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
 }
 
