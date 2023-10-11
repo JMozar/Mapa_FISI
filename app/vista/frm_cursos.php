@@ -14,7 +14,10 @@
         }
         function redirigir_areas() {
         window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_areas";
-        }     
+        }
+        function redirigir_login() {
+        window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_login";
+        }
         function abrirModal() {
         var modal = document.getElementById('modalAgregarArea');
         modal.style.display = 'block';
@@ -23,7 +26,7 @@
         function cerrarModal() {
         var modal = document.getElementById('modalAgregarArea');
         modal.style.display = 'none';
-        }      
+        }
     </script>
 </head>
 <body id="body">
@@ -31,7 +34,7 @@
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
-            <button><img src="../../public/img/usuario.png" alt="imagen">Acceder</button>   
+            <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Cerrar sesión</button>   
         </div>
     </header>
     <div class="contenedor">

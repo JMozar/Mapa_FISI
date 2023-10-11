@@ -13,6 +13,11 @@
     <!--Agregar BootStrap al proyecto (CSS)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <script>
+        function redirigir_login() {
+        window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_login";
+        }
+    </script>
 </head>
 <body>
     <!--Parte superior de la página-->
@@ -20,7 +25,7 @@
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
-            <button><img src="../../public/img/usuario.png" alt="imagen">Acceder</button>   
+            <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Acceder</button>   
         </div>
     </header>
         <!-- BÚSQUEDA-->

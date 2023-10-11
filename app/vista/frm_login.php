@@ -9,9 +9,14 @@
     <!--Agregar BootStrap al proyecto (CSS)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-</head>
+    <script>
+        function redirigir_cursos() {
+        window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_cursos";
+        }
+    </script>
+    </head>
 
-<body style="background-color:#fff";>
+<body style="background-color: #FFF7E7;";>
     <!--Parte superior de la página -->
     <header>
         <div id="cabecera">
@@ -23,7 +28,8 @@
 
      <!-- Login -->
      <div class="container_">
-        <form action="procesar_login.php" method="post">
+        <!--<form action="procesar_login.php" method="post">-->
+        <form action="frm_cursos.php" method="post">
             <img src="../../public/img/unmsm.png" alt="Imagen UNMSM">
             <div>
                 <label for="usuario">Usuario:</label> <br>
@@ -38,12 +44,13 @@
                 <span for="recordar">Recordar cuenta</span>
             </div>
             <div>
-                <input type="submit" value="Entrar" id="btn_enviar">
+            <input type="submit" value="Entrar" id="btn_enviar" onclick="redirigir_cursos()" >  
+            <a href="frm_mapa.php" style="display:block">Volver</a>
             </div>
         </form>        
      </div>
 
 </body>
-<!-- <script type="text/javascript" src="../../public/js/mapa_config.js"></script> -->
+<script type="text/javascript" src="../../public/js/mapa_config.js"></script> 
 
 </html>
