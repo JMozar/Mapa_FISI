@@ -11,8 +11,8 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
 </head>
 
-<body style="background-color:#fff;>
-    <!--Parte superior de la página-->
+<body style="background-color:#fff";>
+    <!--Parte superior de la página -->
     <header>
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
