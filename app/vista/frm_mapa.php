@@ -398,3 +398,4 @@ cerrarVentanaHorarioBtn.addEventListener('click', function() {
 <script type="text/javascript" src="../../public/js/mapa_config.js"></script>
 
 </html>
+<!--Prueba!>
