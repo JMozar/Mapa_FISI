@@ -1,3 +1,57 @@
+<?php 
+ //session_start();// la sesion se esta manteniendo activa
+ //$lista=$_SESSION['LISTA'];
+ require_once '../../util/ConexionBD.php';
+
+ class AreaDao
+{
+
+    public  function  ListarAreas()
+    {
+
+    }
+
+    public function EliminarAreas($codigo)
+   {
+    }
+
+    public  function  ModificarAreas()
+    {
+
+    }
+
+    public  function  AgregarAreas()
+    {
+
+    }
+
+    public  function  ListarPersonas()
+    {
+       try {
+       $sql="select *   from   area where codigo_area='SA105'";
+        $objc=new ConexionBD();
+        $cn= $objc->getConexionBD();
+       $rs= mysqli_query($cn,$sql);
+
+       $lista=array();
+       while($fila=mysqli_fetch_assoc($rs))
+       {
+          $lista[]=$fila;
+
+       }
+       mysqli_close($cn);
+        
+       } catch (Exception   $cn) {
+        
+       }
+       return $lista;
+    }
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,6 +72,17 @@
         window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_login";
         }
     </script>
+
+    <script>
+    function mostrarinfo()
+    {
+    document.body.action="../controlador/area_Controlador.php";
+    document.body.method="GET";
+    document.body.op.value="5";
+    document.body.submit();
+    }
+
+</script>
 </head>
 <body>
     <!--Parte superior de la página-->
@@ -41,6 +106,8 @@
         </ul>
 
     <div id="pantalla_mapa" >
+        
+        <input type="hidden" name="op"/> <!--OPPPPPPPPP-->
         <!--Pantala principal del mapa-->        
         <div class="botones" id="cambia_MapaHorario">
             <button type="button">Ver Horario</button>
@@ -164,6 +231,21 @@
             <div class="info_salon">
                 <p class="cabecera_salon">Salón 105
                 <table class="tabla_infosalon">
+                <tr>
+
+<td> <?php 
+
+$objAreaDao=new AreaDao();
+    $lista=$objAreaDao->ListarPersonas();
+    foreach($lista   as $reg  ){
+        echo $reg['nombre'];
+    }
+  
+
+
+?>  </td><!--Mostrar nombre-->
+
+</tr>
                     <tr>
                     <td><u><b>DETALLES:</b></u></td>
                     </tr>

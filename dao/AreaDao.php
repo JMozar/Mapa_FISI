@@ -22,6 +22,28 @@ class AreaDao
     {
 
     }
+
+    public  function  infoAreas($codigo)
+    {
+        try {
+            $sql="select * from area where codigo_area='codigo';";
+             $objc=new ConexionBD();
+             $cn= $objc->getConexionBD();
+            $rs= mysqli_query($cn,$sql);
+     
+            $lista=array();
+            while($fila=mysqli_fetch_assoc($rs))
+            {
+               $lista[]=$fila;
+     
+            }
+            mysqli_close($cn);
+             
+            } catch (Exception   $cn) {
+             
+            }
+            return $lista;
+         }
 }
 
 ?>
