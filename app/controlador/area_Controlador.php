@@ -1,7 +1,8 @@
 <?php
-//session_start();//me permite  iniciar una  sesion
-//require_once '../../dao/AreaDao.php';
-//require_once '../../bean/AreaBean.php';
+session_start();//me permite  iniciar una  sesion
+require_once "../../util/ConexionBD.php";
+require_once '../../dao/AreaDao.php';
+require_once '../../bean/AreaBean.php';
 
 $op=$_REQUEST['op'];
 
@@ -17,7 +18,7 @@ switch($op)
     break;}
   case 5: {  
     $objAreaDao=new AreaDao();
-    $lista=$objAreaDao->infoAreas('AR001');
+    $lista=$objAreaDao->ListarPersonas();
     $_SESSION['LISTA']=$lista; // estoy guardado en  SEsion;
     header('Location:../vista/frm_mapa.php');
     break;}  

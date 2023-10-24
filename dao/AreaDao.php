@@ -1,5 +1,5 @@
 <?php
-//require_once "../util/ConexionBD.php";
+//require "../util/ConexionBD.php";
 //require '../bean/AreaBean.php';
 class AreaDao
 {

@@ -1,6 +1,6 @@
 <?php 
- //session_start();// la sesion se esta manteniendo activa
- //$lista=$_SESSION['LISTA'];
+ session_start();// la sesion se esta manteniendo activa
+ $lista=$_SESSION['LISTA'];
  require_once '../../dao/AreaDao.php';
  require_once '../../util/ConexionBD.php';
  
@@ -41,11 +41,17 @@
 </script>
 </head>
 <body>
+<form name="form"><input type="hidden" name="op"/></form>
     <!--Parte superior de la página-->
     <header>
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
+            <!--Aqui se guardan los datos-->
+            <?php  foreach($lista   as $reg  ){
+                echo $reg['nombre'];
+            }?>
+
             <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Acceder</button>   
         </div>
     </header>
@@ -75,7 +81,7 @@
 
     <!--Boton salones-->
     <div class=botones_salon>
-        <button id="mostrarInfo" style="background-color: #efe4b0;">105</button>
+        <button id="mostrarInfo" style="background-color: #efe4b0;" onclick="mostrarinfo()">105</button>
         <button id="mostrarInfo2" style="background-color: #efe4b0;">106</button>
     </div>
 
@@ -191,12 +197,9 @@
 
 <td> <?php 
 
-$objAreaDao=new AreaDao();
-    $lista=$objAreaDao->ListarPersonas();
-    foreach($lista   as $reg  ){
-        echo $reg['nombre'];
-    }
-  
+foreach($lista   as $reg  ){
+    echo $reg['nombre'];
+}
 
 
 ?>  </td><!--Mostrar nombre-->
