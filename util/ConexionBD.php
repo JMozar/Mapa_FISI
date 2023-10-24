@@ -5,7 +5,7 @@ class ConexionBD
   const servidor="localhost";
   const usuario="root";//usuario de su base de datos
   const password="";//coloquen la contra de su base de datos Mysql
-  const basedatos="fisimapa";
+  const basedatos="mapafisi";
   public $cn=null;
 
   public function  getConexionBD()
@@ -13,7 +13,7 @@ class ConexionBD
     try {
        
         $this->cn=mysqli_connect(self::servidor,self::usuario,self::password,self::basedatos);
-     } catch (Exception  $e)
+      } catch (Exception  $e)
      {
      }
      return $this->cn;

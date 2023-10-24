@@ -1,3 +1,13 @@
+<?php 
+ session_start();// la sesion se esta manteniendo activa
+ $lista=$_SESSION['LISTA'];
+ require_once '../../dao/AreaDao.php';
+ require_once '../../util/ConexionBD.php';
+ 
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,13 +28,30 @@
         window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_login";
         }
     </script>
+
+    <script>
+    function mostrarinfo()
+    {
+    document.form.action="../controlador/area_Controlador.php";
+    document.form.method="POST";
+    document.form.op.value="5";
+    document.form.submit();
+    }
+
+</script>
 </head>
 <body>
+<form name="form"><input type="hidden" name="op"/></form>
     <!--Parte superior de la página-->
     <header>
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
+            <!--Aqui se guardan los datos-->
+            <?php  foreach($lista   as $reg  ){
+                echo $reg['nombre'];
+            }?>
+
             <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Acceder</button>   
         </div>
     </header>
@@ -41,6 +68,8 @@
         </ul>
 
     <div id="pantalla_mapa" >
+        
+        <input type="hidden" name="op"/> <!--OPPPPPPPPP-->
         <!--Pantala principal del mapa-->        
         <div class="botones" id="cambia_MapaHorario">
             <button type="button">Ver Horario</button>
@@ -52,7 +81,7 @@
 
     <!--Boton salones-->
     <div class=botones_salon>
-        <button id="mostrarInfo" style="background-color: #efe4b0;">105</button>
+        <button id="mostrarInfo" style="background-color: #efe4b0;" onclick="mostrarinfo()">105</button>
         <button id="mostrarInfo2" style="background-color: #efe4b0;">106</button>
     </div>
 
@@ -164,6 +193,18 @@
             <div class="info_salon">
                 <p class="cabecera_salon">Salón 105
                 <table class="tabla_infosalon">
+                <tr>
+
+<td> <?php 
+
+foreach($lista   as $reg  ){
+    echo $reg['nombre'];
+}
+
+
+?>  </td><!--Mostrar nombre-->
+
+</tr>
                     <tr>
                     <td><u><b>DETALLES:</b></u></td>
                     </tr>
@@ -398,3 +439,4 @@ cerrarVentanaHorarioBtn.addEventListener('click', function() {
 <script type="text/javascript" src="../../public/js/mapa_config.js"></script>
 
 </html>
+<!--Prueba!>
