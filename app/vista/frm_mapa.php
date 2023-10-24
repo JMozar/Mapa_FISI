@@ -1,53 +1,9 @@
 <?php 
  //session_start();// la sesion se esta manteniendo activa
  //$lista=$_SESSION['LISTA'];
+ require_once '../../dao/AreaDao.php';
  require_once '../../util/ConexionBD.php';
-
- class AreaDao
-{
-
-    public  function  ListarAreas()
-    {
-
-    }
-
-    public function EliminarAreas($codigo)
-   {
-    }
-
-    public  function  ModificarAreas()
-    {
-
-    }
-
-    public  function  AgregarAreas()
-    {
-
-    }
-
-    public  function  ListarPersonas()
-    {
-       try {
-       $sql="select *   from   area where codigo_area='SA105'";
-        $objc=new ConexionBD();
-        $cn= $objc->getConexionBD();
-       $rs= mysqli_query($cn,$sql);
-
-       $lista=array();
-       while($fila=mysqli_fetch_assoc($rs))
-       {
-          $lista[]=$fila;
-
-       }
-       mysqli_close($cn);
-        
-       } catch (Exception   $cn) {
-        
-       }
-       return $lista;
-    }
-
-}
+ 
 
 ?>
 
@@ -76,10 +32,10 @@
     <script>
     function mostrarinfo()
     {
-    document.body.action="../controlador/area_Controlador.php";
-    document.body.method="GET";
-    document.body.op.value="5";
-    document.body.submit();
+    document.form.action="../controlador/area_Controlador.php";
+    document.form.method="POST";
+    document.form.op.value="5";
+    document.form.submit();
     }
 
 </script>
