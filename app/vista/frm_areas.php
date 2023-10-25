@@ -9,6 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
         <script>
+
+        function eliminarCookies() {
+            document.cookie = 'recordar_usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'recordar_contrasena=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        }
+
         function redirigir_cursos() {
         window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_cursos";
         }
@@ -16,7 +22,8 @@
         window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_areas";
         }
         function redirigir_login() {
-        window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_login";
+            eliminarCookies();
+            window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_login";
         }
         function abrirModal() {
         var modal = document.getElementById('modalAgregarArea');
