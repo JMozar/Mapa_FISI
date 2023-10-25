@@ -28,8 +28,8 @@
 
      <!-- Login -->
      <div class="container_">
-        <!--<form action="procesar_login.php" method="post">-->
-        <form action="frm_cursos.php" method="post">
+        <!--<form action="procesar_login.php" method="post">frm_cursos.php-->
+        <form action="../../dao/LoginDao.php" method="post">
             <img src="../../public/img/unmsm.png" alt="Imagen UNMSM">
             <div>
                 <label for="usuario">Usuario:</label> <br>
@@ -44,7 +44,7 @@
                 <span for="recordar">Recordar cuenta</span>
             </div>
             <div>
-            <input type="submit" value="Entrar" id="btn_enviar" onclick="redirigir_cursos()" >  
+            <input type="submit" value="Entrar" id="btn_enviar"  ><!--onclick="redirigir_cursos()"-->  
             <a href="frm_mapa.php" style="display:block">Volver</a>
             </div>
         </form>        
