@@ -9,6 +9,9 @@ if (isset($_GET['accion'])) {
         case 'navegar_a_areas':
             header("Location: ../vista/frm_areas.php");
             break;
+        case 'navegar_a_login':
+            header("Location: ../vista/frm_login.php");
+            break;
         default:
             echo "Acción no válida";
     }
