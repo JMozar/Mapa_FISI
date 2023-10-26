@@ -30,8 +30,8 @@ switch($op)
       $horaSalida = $_POST["campo8"];
       $modoCurso = $_POST["campo5"];
       $diaCurso = $_POST["campo6"];
-      $profesorApe = $_POST["campo1"];
-      $profesorNomb = $_POST["campo2"];
+      $profesorApe = $_POST["campo9"];
+      $profesorNomb = $_POST["campo10"];
       $codArea = $_POST["campo2"]; // Asumiendo que el área se selecciona en "campo2"
   
       // Crea un objeto CursoBean y asigna los valores

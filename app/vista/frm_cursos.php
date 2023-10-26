@@ -108,7 +108,7 @@
             <label for="campo1" id="campo1text">Código:</label>
             <label for="campo2"style="position: relative;right: 5%" id="campo2text">Área:</label>
             <br>
-            <input type="text" id="campo1" name="campo1" placeholder="Codigo del curso">
+            <input type="text" id="campo1" name="campo1" placeholder="Codigo del curso" required>
 
             <select id="campo2" name="campo2" placeholder="Selección">
             <option value="">Selección</option>
@@ -120,8 +120,14 @@
 
 
 
-            <label for="campo3" id="campo3text">Nombre:</label>
-            <input type="text" id="campo3" name="campo3" placeholder="Nombre del curso">
+            <label for="campo3" id="campo3text">Nombre del curso:</label>
+            <input type="text" id="campo3" name="campo3" required>
+            <br>
+            <label for="campo9" id="campo3text">Apellido del Profesor:</label>
+            <input type="text" id="campo9" name="campo9" required>
+            <br>
+            <label for="campo10" id="campo3text">Nombre del Profesor:</label>
+            <input type="text" id="campo10" name="campo10" required>
 
 
 
@@ -132,27 +138,27 @@
         <br>
             <select id="campo4" name="campo4" >
             <option value="">Selección</option>
-            <option value="opcion1">1</option>
-            <option value="opcion2">2</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
         </select>
 
    
         
             <select id="campo5" name="campo5" >
             <option value="">Selección</option>
-            <option value="opcion1">Teoría</option>
-            <option value="opcion2">Práctica</option>
+            <option value="TEO">Teoría</option>
+            <option value="LABO">Laboratorio</option>
         </select>
  
     
             <select id="campo6" name="campo6" >
             <option value="">Selección</option>
-            <option value="opcion1">Lunes</option>
-            <option value="opcion2">Martes</option>
-            <option value="opcion3">Miercoles</option>
-            <option value="opcion4">Jueves</option>
-            <option value="opcion5">Viernes</option>
-            <option value="opcion6">Sábado</option>
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miercoles">Miercoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sabado">Sábado</option>
         </select>
 
         </div>
@@ -164,23 +170,23 @@
 
             <select id="campo7" name="campo7"  >
             <option value="">Selección</option>
-            <option value="opcion1">08:00 AM</option>
-            <option value="opcion2">09:00 AM</option>
-            <option value="opcion3">10:00 AM</option>
-            <option value="opcion4">11:00 AM</option>
-            <option value="opcion5">12:00 AM</option>
-            <option value="opcion6">1:00 PM</option>
+            <option value="08:00:00">08:00 AM</option>
+            <option value="09:00:00">09:00 AM</option>
+            <option value="10:00:00">10:00 AM</option>
+            <option value="11:00:00">11:00 AM</option>
+            <option value="12:00:00">12:00 AM</option>
+            <option value="13:00:00">1:00 PM</option>
         </select>
 
     
             <select id="campo8" name="campo8" >
             <option value="">Selección</option>
-            <option value="opcion1">09:00 AM</option>
-            <option value="opcion2">10:00 AM</option>
-            <option value="opcion3">11:00 AM</option>
-            <option value="opcion4">12:00 AM</option>
-            <option value="opcion5">1:00 PM</option>
-            <option value="opcion6">2:00 PM</option>
+            <option value="09:00:00">09:00 AM</option>
+            <option value="10:00:00">10:00 AM</option>
+            <option value="11:00:00">11:00 AM</option>
+            <option value="12:00:00">12:00 AM</option>
+            <option value="13:00:00">1:00 PM</option>
+            <option value="14:00:00">2:00 PM</option>
         </select>
         </div>
   

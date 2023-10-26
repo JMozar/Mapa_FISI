@@ -172,7 +172,7 @@ a{
 }
 
 .modal-dialog {
-    top: 15%; /* Posición vertical en el centro */
+    top: 5%; /* Posición vertical en el centro */
 }
 .modal-header {
     color: #68141C; 
@@ -197,7 +197,7 @@ form {
     left: 18%;  
     border-radius: 5px; 
 }
-#campo3{
+#campo3, #campo9, #campo10{
     width: 350px;
     border-radius: 5px;
     position: relative;
