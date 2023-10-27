@@ -1,6 +1,8 @@
 <?php
-//require_once '../util/ConexionBD.php';
-//require_once '../bean/CursoBean.php';
+
+require_once '../util/ConexionBD.php';
+require_once '../bean/CursoBean.php';
+
 class CursoDao
 {
 
@@ -21,6 +23,7 @@ class CursoDao
             // Manejo de errores
         }
         return $lista;
+
     }
 
     public function EliminarCursos($codigo)
@@ -58,6 +61,7 @@ class CursoDao
         mysqli_close($cn);
         // Devuelve el resultado de la ejecución (true o false, por ejemplo)
         return $res;
+
     }
 }
 

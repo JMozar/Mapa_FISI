@@ -21,6 +21,7 @@ class AreaDao
          // Manejo de errores
      }
      return $lista;
+
     }
 
     public function EliminarAreas($codigo)
@@ -61,7 +62,9 @@ class AreaDao
     public  function  ListarPersonas()
     {
        try {
-       $sql="select *   from   area where codigo_area = 'AR001'";
+
+       $sql="select *   from   area where codigo_area='SA105'";
+
         $objc=new ConexionBD();
         $cn= $objc->getConexionBD();
        $rs= mysqli_query($cn,$sql);
@@ -80,6 +83,50 @@ class AreaDao
        return $lista;
     }
 
+
+    public  function  infoArea($codigo)
+    {
+       try {
+       $sql="select *   from   area where codigo_area='$codigo'";
+        $objc=new ConexionBD();
+        $cn= $objc->getConexionBD();
+       $rs= mysqli_query($cn,$sql);
+
+       $lista=array();
+       while($fila=mysqli_fetch_assoc($rs))
+       {
+          $lista[]=$fila;
+
+       }
+       mysqli_close($cn);
+        
+       } catch (Exception   $cn) {
+        
+       }
+       return $lista;
+    }
+    //Devuelve una lista con los cursos que se realizan en un area especifica
+    public  function  cursosArea($codigo)
+    {
+       try {
+       $sql="select *   from   curso where codigo_area='$codigo'";
+        $objc=new ConexionBD();
+        $cn= $objc->getConexionBD();
+       $rs= mysqli_query($cn,$sql);
+
+       $lista=array();
+       while($fila=mysqli_fetch_assoc($rs))
+       {
+          $lista[]=$fila;
+
+       }
+       mysqli_close($cn);
+        
+       } catch (Exception   $cn) {
+        
+       }
+       return $lista;
+    }
 }
 
 ?>

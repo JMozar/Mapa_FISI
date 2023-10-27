@@ -48,12 +48,12 @@ switch($op)
       header('Location:../vista/frm_areas.php');
       break;
   }
+
   case 5: {  
     $objAreaDao=new AreaDao();
     $lista=$objAreaDao->ListarPersonas();
     $_SESSION['LISTA']=$lista; // estoy guardado en  SEsion;
     header('Location:../vista/frm_mapa.php');
-    
     break;}  
       
 }

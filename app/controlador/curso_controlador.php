@@ -1,6 +1,8 @@
 <?php
+
 session_start();//me permite  iniciar una  sesion
 require_once "../../util/ConexionBD.php";
+
 require_once '../../dao/CursoDao.php';
 require_once '../../bean/CursoBean.php';
 
@@ -13,11 +15,13 @@ switch($op)
     $lista=$objCursoDao->ListarCursos();
     $_SESSION['LISTA']=$lista; // estoy guardado en  SEsion;
     header('Location:../vista/frm_cursos.php');
+
     break;}
   case 2: {//eliminar;
     break;}
   case 3: {//editar;
     break;}
+
     case 4: // Agregar un curso
       {
       $objCursoDao = new CursoDao();
@@ -60,4 +64,5 @@ switch($op)
       break;
     }
   }
+
 ?>

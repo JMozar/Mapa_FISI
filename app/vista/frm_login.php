@@ -1,3 +1,4 @@
+
 <?php 
  session_start();// la sesion se esta manteniendo activa
  $lista=$_SESSION['LISTA'];
@@ -7,6 +8,7 @@
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,10 +16,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
     <link rel="stylesheet" href="../../public/css/estilo_login.css">
     <!--Agregar BootStrap al proyecto (CSS)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+
     <script>
         
     function mostrarinfo()
@@ -30,6 +34,7 @@
 
 <body style="background-color: #FFF7E7;";>
 
+
     <!--Parte superior de la página -->
     <header>
         <div id="cabecera">
@@ -39,10 +44,12 @@
         </div>
     </header>
 
+
      <!-- Login -->
      <div class="container_">
         <!--<form action="procesar_login.php" method="post">-->
         <form>
+
             <img src="../../public/img/unmsm.png" alt="Imagen UNMSM">
             <div>
                 <label for="usuario">Usuario:</label> <br>
@@ -57,6 +64,8 @@
                 <span for="recordar">Recordar cuenta</span>
             </div>
             <div>
+
+            <input type="submit" value="Entrar" id="btn_enviar">
             <button type="button" onclick="mostrarinfo()" id="btn_enviar">Entrar</button>
             <!--<input type="submit" value="Entrar" id="btn_enviar" >-->  
             <a href="frm_mapa.php" style="display:block" >Volver</a>
@@ -66,5 +75,6 @@
 
 </body>
 <script type="text/javascript" src="../../public/js/mapa_config.js"></script> 
+
 
 </html>

@@ -1,17 +1,4 @@
 
-
-//Funcion para ventana emergente de la información del area seleccionada
-document.addEventListener("DOMContentLoaded", function () {
-    const botonMostrar = document.getElementById("mostrarInfo");
-    const ventanaEmergente = document.getElementById("ventanaEmergente");
-    const botonCerrar = document.getElementById("cerrarVentana");
-
-    botonMostrar.addEventListener("click", function () {
-        ventanaEmergente.style.display = "block";
-    });
-});
-
-
 //A
 // Obtén una referencia al formulario de búsqueda, el campo de búsqueda y la lista de resultados.
 const searchForm = document.querySelector('.buscador');
@@ -33,6 +20,45 @@ searchInput.addEventListener('input', function() {
 
 // ...
 
+// Busqueda 
+function realizarBusqueda() {
+    const filter = document.getElementById('txtSearch').value.toUpperCase();
+
+    // Realiza una solicitud AJAX para buscar en la base de datos.
+    fetch('../../dao/BarraBusquedaDao.php', { // Ajusta la ruta al archivo PHP de consulta.
+        method: 'POST',
+        body: JSON.stringify({ filter }), // Envía el filtro como datos POST.
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Limpia los resultados anteriores si el campo de búsqueda está vacío.
+        if (filter === '') {
+            document.getElementById('searchResults').innerHTML = '';
+        } else {
+            // Muestra los resultados encontrados.
+            document.getElementById('searchResults').innerHTML = '';
+            data.forEach(result => {
+                const resultItem = document.createElement('li');
+
+                const resultLink = document.createElement('a');
+                resultLink.href = ''; // Agrega la URL de destino.
+                resultLink.textContent = result; // Suponiendo que el resultado tiene una propiedad "nombre".
+                resultItem.appendChild(resultLink);
+
+                document.getElementById('searchResults').appendChild(resultItem);
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error al realizar la búsqueda:', error);
+    });
+}
+
+
+/* Función de búsqueda en el archivo txt
 function realizarBusqueda() {
     const filter = searchInput.value.toUpperCase();
   
@@ -71,7 +97,9 @@ function realizarBusqueda() {
       .catch(error => {
         console.error('Error al cargar el archivo:', error);
       });
-  }
+
+  }*/
+
 
 function mostrarRuta(){
     document.getElementById("pantalla_mapa").style.display="none";
