@@ -1,17 +1,4 @@
 
-
-//Funcion para ventana emergente de la información del area seleccionada
-document.addEventListener("DOMContentLoaded", function () {
-    const botonMostrar = document.getElementById("mostrarInfo");
-    const ventanaEmergente = document.getElementById("ventanaEmergente");
-    const botonCerrar = document.getElementById("cerrarVentana");
-
-    botonMostrar.addEventListener("click", function () {
-        ventanaEmergente.style.display = "block";
-    });
-});
-
-
 //A
 // Obtén una referencia al formulario de búsqueda, el campo de búsqueda y la lista de resultados.
 const searchForm = document.querySelector('.buscador');
