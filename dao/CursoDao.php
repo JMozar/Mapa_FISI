@@ -1,7 +1,7 @@
 <?php
 
-require_once '../util/ConexionBD.php';
-require_once '../bean/CursoBean.php';
+//require_once '../util/ConexionBD.php';
+//require_once '../bean/CursoBean.php';
 
 class CursoDao
 {
