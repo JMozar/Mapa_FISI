@@ -66,7 +66,28 @@ class AreaDao
        }
        return $lista;
     }
+    //Devuelve una lista con los cursos que se realizan en un area especifica
+    public  function  cursosArea($codigo)
+    {
+       try {
+       $sql="select *   from   curso where codigo_area='$codigo'";
+        $objc=new ConexionBD();
+        $cn= $objc->getConexionBD();
+       $rs= mysqli_query($cn,$sql);
 
+       $lista=array();
+       while($fila=mysqli_fetch_assoc($rs))
+       {
+          $lista[]=$fila;
+
+       }
+       mysqli_close($cn);
+        
+       } catch (Exception   $cn) {
+        
+       }
+       return $lista;
+    }
 }
 
 ?>

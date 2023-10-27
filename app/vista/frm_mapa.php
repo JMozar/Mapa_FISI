@@ -9,7 +9,7 @@
  $codigo="AR001";
  $info=$objAreaDao->infoArea($codigo);
 
-
+foreach($info  as $reg  ){}
  
 ?>
 
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
     <!--API de mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <!--Agregar BootStrap al proyecto (CSS)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -39,11 +40,11 @@
                  //$info=$objAreaDao->infoArea("LA004");
             ?>
             ventanaEmergenteSalon.style.display = 'block';
-            botonAula105.style.display = 'block';
+            //botonAula105.style.display = 'block';
             botonMostrarHorario.style.display = 'none';
-            botonAula105.style.borderWidth = '13px';
-            botonAula105.style.borderColor = '#68141C';
-            botonAula105.style.borderStyle = 'solid';
+            //botonAula105.style.borderWidth = '13px';
+            //botonAula105.style.borderColor = '#68141C';
+            //botonAula105.style.borderStyle = 'solid';
         }
     </script>
 
@@ -60,9 +61,7 @@
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
             <!--Aqui se guardan los datos-->
-            <?php  foreach($info  as $reg  ){
-                echo $reg['nombre'];
-            }?>
+            
 
             <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Acceder</button>   
         </div>
@@ -81,6 +80,7 @@
 
     <div id="pantalla_mapa" >
         
+        
         <input type="hidden" name="op"/> <!--OPPPPPPPPP-->
         <!--Pantala principal del mapa-->        
         <div class="botones" id="cambia_MapaHorario">
@@ -89,12 +89,8 @@
 
         <div id="temporal">
             <button type="button" onclick="mostrarRuta()">Ruta</button>
-        </div>
-
-    <!--Boton salones-->
-    <div class=botones_salon>
-        <button id="mostrarInfo" style="background-color: #efe4b0;" onclick="mostrar_info()">105</button>
-        <button id="mostrarInfo2" style="background-color: #efe4b0;">106</button>
+            
+    
     </div>
 
      </div>
@@ -203,84 +199,9 @@
             <span class="cerrar" id="cerrarSalonBtn">&times;</span>
             <img src="../../public/img/Salon1.png" alt="Imagen del salón" style="max-width: 100%; max-height: 80vh;">
             <div class="info_salon">
-                <p class="cabecera_salon">Salón 105
-                <table class="tabla_infosalon">
-                <tr>
 
-<td> <?php 
- 
-foreach($info as $reg  ){
-    echo $reg['nombre'];
-    echo $reg['tipo'];
-}
+                <div id='mostrar_datos'></div>
 
-
-?>  </td><!--Mostrar nombre-->
-
-</tr>
-                    <tr>
-                    <td><u><b>DETALLES:</b></u></td>
-                    </tr>
-                    <tr>
-                    <td>Pabellón Antiguo</td>
-                    </tr>
-                    <tr>
-                    <td>Aforo: 40 personas</td>
-                    </tr>
-                    <tr>
-                    <td>Primer piso</td>
-                    </tr>
-                    <tr>
-                    <td><u><b>ACTIVIDADES:</b></u></td>
-                    </tr>
-                    <tr>
-                    <td>Curso: 202W1003</td>
-                    </tr>
-                    <tr>
-                    <td>PRÁCTICA PRE PROFESIONAL</td>
-                    </tr>
-                    <tr>
-                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
-                    </tr>
-                    <tr>
-                    <td>Matriculados: 25 estudiantes</td>
-                    </tr>
-                    <tr>
-                    <td>Día: Sábado</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Teoría: 14:00 a 18:00</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Laboratorio: 18:00 a 20:00</td>
-                    </tr>
-                    <p></p>
-                    <table class="tabla_infosalon">
-                    <p></p>
-                    <p></p>
-                    <b>----------------------</b>
-                    <p></p>
-                    <td>Curso: 202W1003</td>
-                    </tr>
-                    <tr>
-                    <td>PRÁCTICA PRE PROFESIONAL</td>
-                    </tr>
-                    <tr>
-                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
-                    </tr>
-                    <tr>
-                    <td>Matriculados: 25 estudiantes</td>
-                    </tr>
-                    <tr>
-                    <td>Día: Sábado</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Teoría: 14:00 a 18:00</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Laboratorio: 18:00 a 20:00</td>
-                    </tr>
-                </table>
             </div>
         </div>
     </div>
