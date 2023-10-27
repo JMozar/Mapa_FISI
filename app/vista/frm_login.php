@@ -1,3 +1,14 @@
+
+<?php 
+ session_start();// la sesion se esta manteniendo activa
+ $lista=$_SESSION['LISTA'];
+ require_once '../../dao/AreaDao.php';
+ require_once '../../dao/CursoDao.php';
+ require_once '../../util/ConexionBD.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,15 +16,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!-- Link CSS -->
+
     <link rel="stylesheet" href="../../public/css/estilo_login.css">
     <!--Agregar BootStrap al proyecto (CSS)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-    <!-- Fin BootStrap -->
-</head>
+
+    <script>
+        
+    function mostrarinfo()
+    {
+        window.location.href = "../controlador/curso_controlador.php?op=1";      
+
+    }
+    </script>
+    </head>
 
 <body style="background-color: #FFF7E7;";>
+
+
     <!--Parte superior de la página -->
     <header>
         <div id="cabecera">
@@ -22,11 +43,13 @@
             <button><img src="../../public/img/usuario.png" alt="imagen">Acceder</button>   
         </div>
     </header>
-    <!-- Fin cabezera -->
+
 
      <!-- Login -->
      <div class="container_">
-        <form action="../../dao/LoginDao.php" method="post">
+        <!--<form action="procesar_login.php" method="post">-->
+        <form>
+
             <img src="../../public/img/unmsm.png" alt="Imagen UNMSM">
             <div>
                 <label for="usuario">Usuario:</label> <br>
@@ -41,15 +64,17 @@
                 <span for="recordar">Recordar cuenta</span>
             </div>
             <div>
+
             <input type="submit" value="Entrar" id="btn_enviar">
-            <a href="frm_mapa.php" style="display:block">Volver</a>
+            <button type="button" onclick="mostrarinfo()" id="btn_enviar">Entrar</button>
+            <!--<input type="submit" value="Entrar" id="btn_enviar" >-->  
+            <a href="frm_mapa.php" style="display:block" >Volver</a>
             </div>
         </form>        
      </div>
-    <!-- Fin Login -->
 
-    <!-- Archivo JS -->
-    <script src="../../public/js/login.js"></script> 
 </body>
+<script type="text/javascript" src="../../public/js/mapa_config.js"></script> 
+
 
 </html>

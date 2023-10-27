@@ -182,24 +182,57 @@ form {
     position: relative;
     left: 5%;
 }
-#campo1, #campo2 {
+#campo1 {
     
-    width: 270px; /* Ancho personalizado para "Identificador" */
+    width: 240px; /* Ancho personalizado para "Identificador" */
+    position: relative;
+    left: 10%;  
     border-radius: 5px;
 }
+
 #campo2 {
     width: 130px; /* Ancho personalizado para "Identificador" */
     position: relative;
-    right: 7%;  
+    left: 12%;  
     border-radius: 5px; 
 }
-#campo3{
-    width: 430px;
-    border-radius: 5px;
+#campo1text{
+    position: relative;
+    left: 10%;  
 }
-#campo4,#campo5,#campo6{
-    width: 130px;
+#campo2text{
+    position: relative;
+    left: 45%;  
+}
+
+#campo3{
+    width: 380px;
     border-radius: 5px;
+    position: relative;
+    left: 10%;  
+}
+#campo3text{
+    position: relative;
+    left: 10%;  
+}
+
+#campo4,#campo5,#campo6{
+    width: 123px;
+    border-radius: 5px;
+    position: relative;
+    left: 10%; 
+}
+#campo4text{
+    position: relative;
+    left: 10%; 
+}
+#campo5text{
+    position: relative;
+    left: 30%;  
+}
+#campo6text{
+    position: relative;
+    left: 42%; 
 }
 #campo6{
     position: relative;
@@ -207,7 +240,16 @@ form {
     border-radius: 5px;
 }
 #campo7{
-    width: 430px;
+    width: 380px;
     height: 80px;
     border-radius: 5px;
+    position: relative;
+    left: 10%;
+}
+#campo7text{
+    position: relative;
+    left: 20%; 
+}
+#areas{
+    position: relative;
 }

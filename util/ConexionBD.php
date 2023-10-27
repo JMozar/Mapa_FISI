@@ -13,6 +13,7 @@ class ConexionBD
     try {
        
         $this->cn=mysqli_connect(self::servidor,self::usuario,self::password,self::basedatos);
+
       } catch (Exception  $e)
      {
      }

@@ -97,7 +97,9 @@ function realizarBusqueda() {
       .catch(error => {
         console.error('Error al cargar el archivo:', error);
       });
+
   }*/
+
 
 function mostrarRuta(){
     document.getElementById("pantalla_mapa").style.display="none";

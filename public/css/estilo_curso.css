@@ -172,7 +172,7 @@ a{
 }
 
 .modal-dialog {
-    top: 15%; /* Posición vertical en el centro */
+    top: 5%; /* Posición vertical en el centro */
 }
 .modal-header {
     color: #68141C; 
@@ -185,35 +185,92 @@ form {
     position: relative;
     left: 5%;
 }
-#campo1, #campo2 {
-    
-    width: 270px; /* Ancho personalizado para "Identificador" */
+#campo1{
+    position: relative;
+    left: 15%;
+    width: 200px; /* Ancho personalizado para "Identificador" */
     border-radius: 5px;
 }
 #campo2 {
     width: 130px; /* Ancho personalizado para "Identificador" */
     position: relative;
-    right: 7%;  
+    left: 18%;  
     border-radius: 5px; 
 }
-#campo3{
-    width: 430px;
+#campo3, #campo9, #campo10{
+    width: 350px;
     border-radius: 5px;
+    position: relative;
+    left: 17%;
 }
 #campo4,#campo5,#campo6{
-    width: 130px;
+    width: 90px;
     border-radius: 5px;
+}
+#campo4{
+    border-radius: 5px;
+    position: relative;
+    left: 15%;
+}
+#campo5{
+    border-radius: 5px;
+    position: relative;
+    left: 19%;
 }
 #campo6{
     position: relative;
-    right: 15%;
+    left: 21%;
     border-radius: 5px;
 }
 #campo7{
-    width: 200px;
+    width: 120px;
     border-radius: 5px;
+    position: relative;
+    left: 15%;
 }
 #campo8{
-    width: 200px;
+    width: 120px;
     border-radius: 5px;
+    position: relative;
+    left: 32%;
+}
+#campo1text{
+    position: relative;
+    left: 15%;
+}
+#campo2text{
+    position: relative;
+    left: 50%;
+}
+#campo3text{
+    position: relative;
+    left: 17%;
+}
+#campo4text{
+    position: relative;
+ 
+    left: 15%;
+}
+#campo5text{
+    position: relative;
+
+    left: 28%;
+}
+#campo6text{
+    position: relative;
+
+    left: 40%;
+
+}
+#campo7text{
+    position: relative;
+
+    left: 15%;
+
+}
+#campo8text{
+    position: relative;
+
+    left: 40%;
+
 }

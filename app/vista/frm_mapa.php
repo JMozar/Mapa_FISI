@@ -1,5 +1,6 @@
 <?php 
  session_start();// la sesion se esta manteniendo activa
+
  //$lista=$_SESSION['LISTA'];
  require_once '../../dao/AreaDao.php';
  require_once '../../util/ConexionBD.php';
@@ -55,13 +56,14 @@ foreach($info  as $reg  ){}
     <input type="hidden" name="op"/>
     <input type="hidden" name="codigoArea"/>
 </form>
+
     <!--Parte superior de la página-->
     <header>
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
             <!--Aqui se guardan los datos-->
-            
+
 
             <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Acceder</button>   
         </div>
@@ -80,11 +82,12 @@ foreach($info  as $reg  ){}
 
     <div id="pantalla_mapa" >
         
-        
+
         <input type="hidden" name="op"/> <!--OPPPPPPPPP-->
         <!--Pantala principal del mapa-->        
         <div class="botones" id="cambia_MapaHorario">
             <button type="button">Ver Horario</button>
+
         </div>
 
         <div id="temporal">
@@ -206,8 +209,6 @@ foreach($info  as $reg  ){}
         </div>
     </div>
 
-
-    
       
      <!--Vista de rutas-->
     <div id="ruta" style="display: none;">
@@ -247,7 +248,6 @@ function ocultarVentanaYMostrarBoton(ventana, boton) {
     ventana.style.display = 'none';
     boton.style.display = 'block';
 }
-// Agrega un evento de clic al botón "105"
 
 // Agrega un evento de clic al botón de cierre de la ventana del salón 105
 cerrarSalonBtn.addEventListener('click', function() {
