@@ -1,3 +1,13 @@
+<?php 
+ session_start();// la sesion se esta manteniendo activa
+ $lista=$_SESSION['LISTA'];
+ $lista1=$_SESSION['LISTA1'];
+ require_once '../../dao/AreaDao.php';
+ require_once '../../dao/CursoDao.php';
+ require_once '../../util/ConexionBD.php';
+?>
+
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,33 +19,79 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
         <script>
+
+        function eliminarCookies() {
+            document.cookie = 'recordar_usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'recordar_contrasena=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        }
+
         function redirigir_cursos() {
-        window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_cursos";
+        window.location.href = "../controlador/curso_controlador.php?op=1";
         }
         function redirigir_areas() {
-        window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_areas";
-        }     
+            window.location.href = "../controlador/area_Controlador.php?op=1";
+        }
+        function redirigir_login() {
+        window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_login";
+
+        }
+        function cargarD(){
+            window.location.href = "../controlador/curso_Controlador.php?op=5";
+        }
         function abrirModal() {
         var modal = document.getElementById('modalAgregarArea');
         modal.style.display = 'block';
         }
-
         function cerrarModal() {
         var modal = document.getElementById('modalAgregarArea');
         modal.style.display = 'none';
-        }         
+        }
+
+        function mostrarinfo()
+    {
+        window.location.href = "../controlador/curso_controlador.php?op=1";      
+
+    }
+
+    function abrirEditarA(button) {
+    var modal = document.getElementById('modalEditarArea');
+
+    // Obtener los valores de los atributos de datos del botón
+    var codigoArea = button.getAttribute('data-codigo-area');
+    var nombreArea = button.getAttribute('data-nombre-area');
+    var tipoArea = button.getAttribute('data-tipo-area');
+    var pabellonArea = button.getAttribute('data-pabellon-area');
+    var piso = button.getAttribute('data-piso');
+    var aforo = button.getAttribute('data-aforo');
+    var notas = button.getAttribute('data-notas');
+
+    // Rellenar los campos del modal con los valores
+    document.getElementById('campo1').value = codigoArea;
+    document.getElementById('campo2').value = aforo;
+    document.getElementById('campo3').value = nombreArea;
+    document.getElementById('campo4').value = tipoArea;
+    document.getElementById('campo5').value = pabellonArea;
+    document.getElementById('campo6').value = piso;
+    document.getElementById('campo7').value = notas;
+
+
+    modal.style.display = 'block';
+    }
+
+
+        function cerrarEditarA() {
+        var modal = document.getElementById('modalEditarArea');
+        modal.style.display = 'none';
+        }
+
     </script>
 </head>
 <body id="body">
-    <header>
+<header>
         <div id="cabecera">
-            <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI" >
-            <h3 style="position: relative; left: 25px;top: 30px;" class="header-text">Mapa interactivo de la FISI</h3>
-            <div class="boton-bloque-acceder"
-             onclick="accionBoton1()">
-             <img src="/public/img/cuenta.png" style="height: 50px; position: relative;right: 10px;">
-             Acceder
-            </div>
+            <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
+            <h3>Mapa Interactivo de la FISI</h3>
+            <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Cerrar sesión</button>   
         </div>
     </header>
     <div class="contenedor">
@@ -60,106 +116,184 @@
                 <td>Notas</td>
                 <td>Acción</td>
             </tr>
-            <tr id="fila">
-                <td>SA105</td>
-                <td>Salón 105</td>
-                <td>S</td>
-                <td>ANT</td>
-                <td>1</td>
-                <td>40</td>
-                <td>-En mantenimiento</td>
-                <td><img src="/public/img/editar.png"><img src="/public/img/eliminar.png"></td>              
-            </tr>
-            <tr id="fila">
-                <td>LA004</td>
-                <td>Laboratorio 4</td>
-                <td>L</td>
-                <td>ANT</td>
-                <td>3</td>
-                <td>20</td>
-                <td>-Támbien llamado CENPRO</td>
-                <td><img src="/public/img/editar.png"><img src="/public/img/eliminar.png"></td>              
-            </tr>
-            
+<?php  
+
+    foreach ($lista as $reg) {
+        echo '<tr id="fila">';
+        echo '<td>' . $reg['codigo_area'] . '</td>';
+        echo '<td>' . $reg['nombre'] . '</td>';
+        echo '<td>' . $reg['tipo'] . '</td>';
+        echo '<td>' . $reg['pabellon'] . '</td>';
+        echo '<td>' . $reg['piso'] . '</td>';
+        echo '<td>' . $reg['aforo'] . '</td>';
+        echo '<td>' . $reg['notas'] . '</td>';
+        echo '<td> <button class="boton-editar" onclick="abrirEditarA(this)" ' .
+            'data-codigo-area="' . $reg['codigo_area'] . '" ' .
+            'data-nombre-area="' . $reg['nombre'] . '" ' .
+            'data-tipo-area="' . $reg['tipo'] . '" ' .
+            'data-pabellon-area="' . $reg['pabellon'] . '" ' .
+            'data-piso="' . $reg['piso'] . '" ' .
+            'data-aforo="' . $reg['aforo'] . '" ' .
+            'data-notas="' . $reg['notas'] . '"><img src="/public/img/editar.png" alt="Editar"></button>';
+        echo '<td>' .
+        '<form method="POST" action="../controlador/area_controlador.php?op=2" onsubmit="return confirm(\'¿Estás seguro de que deseas eliminar este curso?\');">' .
+        '<input type="hidden" name="codigo_area" value="' . $reg['codigo_area'] . '">' .
+        '<button type="submit" class="boton-eliminar"> <img src="/public/img/eliminar.png" alt="Eliminar"></button>' .
+        '</form>' .
+        '</td>';
+        echo '</tr>';
+    }
+
+    ?> 
+             
         </center>
         </table>
-<!-- Modal para agregar áreas -->
-<div class="modal" id="modalAgregarArea">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" style="position: relative;left: 25%; font-size: 28px;">DATOS DEL ÁREA</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-        <div>
-            <label for="campo1">Identificador:</label>
-            <input type="text" id="campo1" name="campo1" placeholder="ID del área">
+
+<!-- Modal para Editar áreas -->
+<form method="POST" action="../controlador/area_Controlador.php?op=3" id=areas>
+    <div class="modal" id="modalEditarArea">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="position: relative; left: 25%; font-size: 28px;">DATOS DEL ÁREA</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarEditarA()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="campo1" id="campo1text">Identificador:</label>
+                    <label for="campo2" id="campo2text">Aforo:</label>
+                    <br>
+                    <input type="text" id="campo1" name="campo1" placeholder="ID del área">
+                    
+
+                    <select id="campo2" name="campo2">
+                    <option value="">Selección</option>
+                    <option value="20">20 personas</option>
+                    <option value="40">40 personas</option>
+                    <option value="50">50 personas</option>
+                    </select>
+                    <br>
+                        <label for="campo3" id="campo3text">Nombre:</label>
+                    <br>
+                        <input type="text" id="campo3" name="campo3" placeholder="Nombre del área">
+                    <br>
+
+                        <label for="campo4" id="campo4text">Tipo:</label>
+                        <label for="campo5" id="campo5text">Pabellón:</label>
+                        <label for="campo6" id="campo6text">Piso:</label>
+                        <br>
+                        <select id="campo4" name="campo4">
+                            <option value="">Selección</option>
+                            <option value="A">Aula</option>
+                            <option value="L">Laboratorio</option>
+                            <option value="O">Oficina</option>
+                        </select>
+
+ 
+                        <select id="campo5" name="campo5">
+                            <option value="">Selección</option>
+                            <option value="ANT">Antiguo</option>
+                            <option value="NUE">Nuevo</option>
+                        </select>
+
+                        <select id="campo6" name="campo6">
+                        <option value="">Selección</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        </select>
+
+                        <br>
+                        <label for="campo7" id="campo7text" style="position: relative;
+                        left: 10%; ">Notas:</label>
+                        <br>
+                        <input type="text" id="campo7" name="campo7" placeholder="Notas del área">
+                        <br>
+                        <br>
+ 
+                    <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 44%;" name="btnagregar" value="ok" onclick="GuardarA()">Guardar</button>
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="campo2"style="position: relative;right: 5%">Aforo:</label>
-            <select id="campo2" name="campo2" placeholder="Selección">
-            <option value="">Selección</option>
-            <option value="opcion1">20 personas</option>
-            <option value="opcion2">40 personas</option>
-            <option value="opcion3">50 personas</option>
-            </select>
     </div>
-        </form>
-    <br>
-        <form>
-        <div>
-            <label for="campo3">Nombre:</label>
-            <input type="text" id="campo3" name="campo3" placeholder="Nombre del área">
-        </div>
-    </form>
-    <br>
-        <form>
-        <div>
-        <label for="campo4">Tipo:</label>
-            <select id="campo4" name="campo4" >
-            <option value="">Selección</option>
-            <option value="opcion1">Aula</option>
-            <option value="opcion2">Laboratorio</option>
-            <option value="opcion3">Oficina</option>
-        </select>
-        </div>
-        <div>
-        <label for="campo5">Pabellón:</label>
-            <select id="campo5" name="campo5" >
-            <option value="">Selección</option>
-            <option value="opcion1">Antiguo</option>
-            <option value="opcion2">Nuevo</option>
-        </select>
-    </div>
-    <div>
-    <label for="campo6">Piso:</label>
-            <select id="campo6" name="campo6" >
-            <option value="">Selección</option>
-            <option value="opcion1">1</option>
-            <option value="opcion2">2</option>
-            <option value="opcion3">3</option>
-        </select>
-    </div>
-        </form>
-        <br>
-        <form>
-        <div>
-            <label for="campo7">Notas:</label>
-            <input type="text" id="campo7" name="campo7" placeholder="ID del área">
-        </div>
-        </form>
-        <br>
-        <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 44%;">Listo</button>
-      </div>
-    </div>
-  </div>
+</aside>
 </div>
-    </aside>
+</form>
+
+
+
+<!-- Modal para agregar áreas -->
+<form method="POST" action="../controlador/area_Controlador.php?op=4" id=areas>
+    <div class="modal" id="modalAgregarArea">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="position: relative; left: 25%; font-size: 28px;">DATOS DEL ÁREA</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="campo1" id="campo1text">Identificador:</label>
+                    <label for="campo2" id="campo2text">Aforo:</label>
+                    <br>
+                    <input type="text" id="campo1" name="campo1" placeholder="ID del área">
+                    
+
+                    <select id="campo2" name="campo2">
+                    <option value="">Selección</option>
+                    <option value="20">20 personas</option>
+                    <option value="40">40 personas</option>
+                    <option value="50">50 personas</option>
+                    </select>
+                    <br>
+                        <label for="campo3" id="campo3text">Nombre:</label>
+                    <br>
+                        <input type="text" id="campo3" name="campo3" placeholder="Nombre del área">
+                    <br>
+
+                        <label for="campo4" id="campo4text">Tipo:</label>
+                        <label for="campo5" id="campo5text">Pabellón:</label>
+                        <label for="campo6" id="campo6text">Piso:</label>
+                        <br>
+                        <select id="campo4" name="campo4">
+                            <option value="">Selección</option>
+                            <option value="A">Aula</option>
+                            <option value="L">Laboratorio</option>
+                            <option value="O">Oficina</option>
+                        </select>
+
+ 
+                        <select id="campo5" name="campo5">
+                            <option value="">Selección</option>
+                            <option value="ANT">Antiguo</option>
+                            <option value="NUE">Nuevo</option>
+                        </select>
+
+                        <select id="campo6" name="campo6">
+                        <option value="">Selección</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        </select>
+
+                        <br>
+                        <label for="campo7" id="campo7text" style="position: relative;
+                        left: 10%; ">Notas:</label>
+                        <br>
+                        <input type="text" id="campo7" name="campo7" placeholder="Notas del área">
+                        <br>
+                        <br>
+ 
+                    <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 44%;" name="btnagregar" value="ok" onclick="cargarD()">Listo</button>
+                </div>
+            </div>
+        </div>
     </div>
+</aside>
+</div>
+</form>
     <footer>
         Mapa Interactivo de la fisi
     </footer>
