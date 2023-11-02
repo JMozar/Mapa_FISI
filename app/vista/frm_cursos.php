@@ -175,7 +175,7 @@
             <label for="campo1" id="campo1text">Código:</label>
             <label for="campo2"style="position: relative;right: 5%" id="campo2text">Área:</label>
             <br>
-            <input type="text" id="campo1" name="campo1" placeholder="Codigo del curso" required>
+            <input type="text" id="campo1" name="campo1" placeholder="Codigo del curso" required oninput="this.value = this.value.toUpperCase();">
 
             <select id="campo2" name="campo2" placeholder="Selección">
             <option value="">Selección</option>
@@ -191,13 +191,13 @@
 
 
             <label for="campo3" id="campo3text">Nombre del curso:</label>
-            <input type="text" id="campo3" name="campo3" required>
+            <input type="text" id="campo3" name="campo3" required oninput="this.value = this.value.toUpperCase();">
             <br>
             <label for="campo9" id="campo3text">Apellido del Profesor:</label>
-            <input type="text" id="campo9" name="campo9" required>
+            <input type="text" id="campo9" name="campo9" required oninput="this.value = this.value.toUpperCase();">
             <br>
             <label for="campo10" id="campo3text">Nombre del Profesor:</label>
-            <input type="text" id="campo10" name="campo10" required>
+            <input type="text" id="campo10" name="campo10" required oninput="this.value = this.value.toUpperCase();">
 
 
 
@@ -285,7 +285,7 @@
             <label for="campo1" id="campo1text">Código:</label>
             <label for="campo2"style="position: relative;right: 5%" id="campo2text">Área:</label>
             <br>
-            <input type="text" id="campo1" name="campo1" placeholder="Codigo del curso" required>
+            <input type="text" id="campo1" name="campo1" placeholder="Codigo del curso" required oninput="this.value = this.value.toUpperCase();">
 
             <select id="campo2" name="campo2" placeholder="Selección">
             <option value="">Selección</option>
@@ -300,13 +300,13 @@
 
 
             <label for="campo3" id="campo3text">Nombre del curso:</label>
-            <input type="text" id="campo3" name="campo3" required>
+            <input type="text" id="campo3" name="campo3" required oninput="this.value = this.value.toUpperCase();">
             <br>
             <label for="campo9" id="campo3text">Apellido del Profesor:</label>
-            <input type="text" id="campo9" name="campo9" required>
+            <input type="text" id="campo9" name="campo9" required oninput="this.value = this.value.toUpperCase();">
             <br>
             <label for="campo10" id="campo3text">Nombre del Profesor:</label>
-            <input type="text" id="campo10" name="campo10" required>
+            <input type="text" id="campo10" name="campo10" required oninput="this.value = this.value.toUpperCase();">
 
 
 
