@@ -105,4 +105,6 @@ class CursoBean {
         $this->codArea = $codArea;
     }
 }
+
 ?>
+
