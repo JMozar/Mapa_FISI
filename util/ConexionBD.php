@@ -20,4 +20,5 @@ class ConexionBD
      return $this->cn;
   }
 }
+
 ?>

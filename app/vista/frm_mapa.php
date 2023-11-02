@@ -1,3 +1,20 @@
+<?php 
+ session_start();// la sesion se esta manteniendo activa
+
+ //$lista=$_SESSION['LISTA'];
+ require_once '../../dao/AreaDao.php';
+ require_once '../../util/ConexionBD.php';
+
+
+ $objAreaDao=new AreaDao();
+ $codigo="AR001";
+ $info=$objAreaDao->infoArea($codigo);
+
+foreach($info  as $reg  ){}
+ 
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,18 +26,46 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
     <!--API de mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <!--Agregar BootStrap al proyecto (CSS)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <script>
+        function redirigir_login() {
+        window.location.href = "../controlador/usu_controlador.php?accion=navegar_a_login";
+        }
+
+        function mostrar_info() {
+            <?php
+                 //$info=$objAreaDao->infoArea("LA004");
+            ?>
+            ventanaEmergenteSalon.style.display = 'block';
+            //botonAula105.style.display = 'block';
+            botonMostrarHorario.style.display = 'none';
+            //botonAula105.style.borderWidth = '13px';
+            //botonAula105.style.borderColor = '#68141C';
+            //botonAula105.style.borderStyle = 'solid';
+        }
+    </script>
+
+    
 </head>
 <body>
+<form name="form" method="post">
+    <input type="hidden" name="op"/>
+    <input type="hidden" name="codigoArea"/>
+</form>
+
     <!--Parte superior de la página-->
     <header>
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
-            <button><img src="../../public/img/usuario.png" alt="imagen">Acceder</button>   
+            <!--Aqui se guardan los datos-->
+
+
+            <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Acceder</button>   
         </div>
     </header>
         <!-- BÚSQUEDA-->
@@ -36,15 +81,24 @@
         </ul>
 
     <div id="pantalla_mapa" >
+        
+
+        <input type="hidden" name="op"/> <!--OPPPPPPPPP-->
         <!--Pantala principal del mapa-->        
         <div class="botones" id="cambia_MapaHorario">
-            <button type="button" onclick="cambia_mapa_horario()">Ver Horario</button>
+            <button type="button">Ver Horario</button>
+
         </div>
 
         <div id="temporal">
             <button type="button" onclick="mostrarRuta()">Ruta</button>
-        </div>
+            
+    
+    </div>
+
      </div>
+
+    
   
 <!-- Zonas flotantes-->    
   <div class="navegador">
@@ -57,10 +111,7 @@
          <button type="button">-</button>
     </div>
   
-<!-- función para vista horarios-->
-<div>
-    <button id="vista_horario">Vista horario</button>
-    </div>
+
 
 
     <div id="ventanaEmergenteHorario" style="display: none;">
@@ -143,13 +194,7 @@
     </div>
     </div>
 
-<!--Boton salones-->
-    <div>
-        <button id="mostrarInfo" style="background-color: #efe4b0;">105</button>
-    </div>
-    <div>
-    <button id="mostrarInfo2" style="background-color: #efe4b0;">106</button>
-    </div>
+
 <!-- Contenido salones--> 
     <!-- Salón 105-->
     <div id="ventanaEmergenteSalon" class="ventana">
@@ -157,157 +202,20 @@
             <span class="cerrar" id="cerrarSalonBtn">&times;</span>
             <img src="../../public/img/Salon1.png" alt="Imagen del salón" style="max-width: 100%; max-height: 80vh;">
             <div class="info_salon">
-                <p class="cabecera_salon">Salón 105
-                <table class="tabla_infosalon">
-                    <tr>
-                    <td><u><b>DETALLES:</b></u></td>
-                    </tr>
-                    <tr>
-                    <td>Pabellón Antiguo</td>
-                    </tr>
-                    <tr>
-                    <td>Aforo: 40 personas</td>
-                    </tr>
-                    <tr>
-                    <td>Primer piso</td>
-                    </tr>
-                    <tr>
-                    <td><u><b>ACTIVIDADES:</b></u></td>
-                    </tr>
-                    <tr>
-                    <td>Curso: 202W1003</td>
-                    </tr>
-                    <tr>
-                    <td>PRÁCTICA PRE PROFESIONAL</td>
-                    </tr>
-                    <tr>
-                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
-                    </tr>
-                    <tr>
-                    <td>Matriculados: 25 estudiantes</td>
-                    </tr>
-                    <tr>
-                    <td>Día: Sábado</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Teoría: 14:00 a 18:00</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Laboratorio: 18:00 a 20:00</td>
-                    </tr>
-                    <p></p>
-                    <table class="tabla_infosalon">
-                    <p></p>
-                    <p></p>
-                    <b>----------------------</b>
-                    <p></p>
-                    <td>Curso: 202W1003</td>
-                    </tr>
-                    <tr>
-                    <td>PRÁCTICA PRE PROFESIONAL</td>
-                    </tr>
-                    <tr>
-                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
-                    </tr>
-                    <tr>
-                    <td>Matriculados: 25 estudiantes</td>
-                    </tr>
-                    <tr>
-                    <td>Día: Sábado</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Teoría: 14:00 a 18:00</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Laboratorio: 18:00 a 20:00</td>
-                    </tr>
-                </table>
+
+                <div id='mostrar_datos'></div>
+
             </div>
         </div>
     </div>
 
-
-    <!-- Salón 106-->
-    <div id="ventanaEmergenteSalon2" class="ventana">
-        <div class="contenido_ventana_salon2">
-            <span class="cerrar" id="cerrarSalonBtn2">&times;</span>
-            <img src="../../public/img/Salon2.png" alt="Imagen del salón" style="max-width: 100%; max-height: 80vh;">
-            <div class="info_salon">
-                <p class="cabecera_salon">Salón 106
-                <table class="tabla_infosalon">
-                    <tr>
-                    <td><u><b>DETALLES:</b></u></td>
-                    </tr>
-                    <tr>
-                    <td>Pabellón Antiguo</td>
-                    </tr>
-                    <tr>
-                    <td>Aforo: 40 personas</td>
-                    </tr>
-                    <tr>
-                    <td>Primer piso</td>
-                    </tr>
-                    <tr>
-                    <td><u><b>ACTIVIDADES:</b></u></td>
-                    </tr>
-                    <tr>
-                    <td>Curso: 202W1003</td>
-                    </tr>
-                    <tr>
-                    <td>PRÁCTICA PRE PROFESIONAL</td>
-                    </tr>
-                    <tr>
-                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
-                    </tr>
-                    <tr>
-                    <td>Matriculados: 25 estudiantes</td>
-                    </tr>
-                    <tr>
-                    <td>Día: Sábado</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Teoría: 14:00 a 18:00</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Laboratorio: 18:00 a 20:00</td>
-                    </tr>
-                    <p></p>
-                    <table class="tabla_infosalon">
-                    <p></p>
-                    <p></p>
-                    <b>----------------------</b>
-                    <p></p>
-                    <td>Curso: 202W1003</td>
-                    </tr>
-                    <tr>
-                    <td>PRÁCTICA PRE PROFESIONAL</td>
-                    </tr>
-                    <tr>
-                    <td>Profesora: MURAKAMI DE LA CRUZ, SUMIKO ELIZABETH</td>
-                    </tr>
-                    <tr>
-                    <td>Matriculados: 25 estudiantes</td>
-                    </tr>
-                    <tr>
-                    <td>Día: Sábado</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Teoría: 14:00 a 18:00</td>
-                    </tr>
-                    <tr>
-                    <td>Hora Laboratorio: 18:00 a 20:00</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
       
      <!--Vista de rutas-->
     <div id="ruta" style="display: none;">
         <div id=central>
-            <button type="button">a</button>
+            <button type="button"></button>
             <img src="" alt="imagen RUTA">
-            <button type="button">a</button>
+            <button type="button"></button>
         </div>
         <div id=aceptar>
             <button type="button" onclick="mostrarMapa()">Aceptar</button>
@@ -332,7 +240,7 @@ var botonAula106 = document.getElementById('mostrarInfo2');
 var ventanaEmergenteSalon2 = document.getElementById('ventanaEmergenteSalon2');
 var cerrarSalonBtn2 = document.getElementById('cerrarSalonBtn2');
 // Variables para Vista Horario
-var botonMostrarHorario = document.getElementById('vista_horario');
+var botonMostrarHorario = document.getElementById('cambia_MapaHorario');
 var ventanaEmergenteHorario = document.getElementById('ventanaEmergenteHorario');
 var cerrarVentanaHorarioBtn = document.getElementById('cerrarVentanaHorarioBtn');
 // Función para ocultar ventana y mostrar botón
@@ -340,15 +248,7 @@ function ocultarVentanaYMostrarBoton(ventana, boton) {
     ventana.style.display = 'none';
     boton.style.display = 'block';
 }
-// Agrega un evento de clic al botón "105"
-botonAula105.addEventListener('click', function() {
-    ventanaEmergenteSalon.style.display = 'block';
-    botonAula105.style.display = 'block';
-    botonMostrarHorario.style.display = 'none';
-    botonAula105.style.borderWidth = '13px';
-    botonAula105.style.borderColor = '#68141C';
-    botonAula105.style.borderStyle = 'solid';
-});
+
 // Agrega un evento de clic al botón de cierre de la ventana del salón 105
 cerrarSalonBtn.addEventListener('click', function() {
     ocultarVentanaYMostrarBoton(ventanaEmergenteSalon, botonAula105);
@@ -393,3 +293,4 @@ cerrarVentanaHorarioBtn.addEventListener('click', function() {
 <script type="text/javascript" src="../../public/js/mapa_config.js"></script>
 
 </html>
+<!--Prueba!>

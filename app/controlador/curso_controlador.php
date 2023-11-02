@@ -84,6 +84,7 @@ switch($op)
       $lista=$objCursoDao->ListarCursos();
       $_SESSION['LISTA']=$lista; // estoy guardado en  SEsion;
       header('Location:../vista/frm_cursos.php');
+
     break;}
 
     case 4: // Agregar un curso
@@ -133,6 +134,7 @@ switch($op)
       $_SESSION['LISTA1']=$lista1; // estoy guardado en  SEsion;
       header('Location:../vista/frm_cursos.php');
     }
+
   }
 
 ?>

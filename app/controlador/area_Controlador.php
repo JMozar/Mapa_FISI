@@ -15,6 +15,7 @@ switch($op)
     header('Location:../vista/frm_areas.php');
     
     break;}
+
 case 2: {//eliminar;
     $objAreaDao = new AreaDao();
   
@@ -71,7 +72,6 @@ case 2: {//eliminar;
       break;
   }
   
-
 
 
     case 4: {//agregar

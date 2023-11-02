@@ -158,6 +158,7 @@
         </table>      
     </aside>
     </div>
+
 <!-- Modal para editar cursos -->
 <form method="POST" action="../controlador/curso_controlador.php?op=3">
 <div class="modal" id="modalEditarCurso" >
@@ -178,6 +179,7 @@
 
             <select id="campo2" name="campo2" placeholder="Selección">
             <option value="">Selección</option>
+
             <?php
             foreach ($lista1 as $reg) {
         echo '<option value=' . $reg['codigo_area'] . '>' . $reg['nombre'] . '</option>';
@@ -368,7 +370,9 @@
         </div>
   
         <br>
+
         <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 42%; width:100px;bottom:20px" name="btnagregar" value="ok">Listo</button>
+
       </div>
     </div>
   </div>

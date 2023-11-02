@@ -12,7 +12,7 @@ var geojson = {
     "features": [
         {
             "type": "Feature",
-            "properties": {"tipo":"otro"},
+            "properties": {"tipo":"AR001"},
             "geometry": {
                 "coordinates": [
                     [
@@ -43,7 +43,7 @@ var geojson = {
         },
         {
             "type": "Feature",
-            "properties": {"tipo":"salon"},
+            "properties": {"tipo":"LA004"},
             "geometry": {
                 "coordinates": [
                     [
@@ -114,17 +114,49 @@ map.on('load', () => {
         });
     });
 
+    function mostrar(code)
+    { 
+      var parametros = 
+      {
+        "codigo" : code,
+        "apellido" : "hurtado",
+        "telefono" : "123456789"
+      };
+
+      $.ajax({
+        data: parametros,
+        url: '../controlador/controlador_ajax_area.php',
+        type: 'POST',
+        
+        beforesend: function()
+        {
+          $('#mostrar_mensaje').html("Mensaje antes de Enviar");
+        },
+
+        success: function(mensaje)
+        {
+          $('#mostrar_datos').html(mensaje);
+        }
+      });
+    }
+
     //Eventos
 
-    map.on('click', 'maine',function() {
+    map.on('click', 'maine',function(e) {
         // Tu código a ejecutar cuando se hace clic en el marcador
-        //alert('Marcador clickeado');
-        
-        document.getElementById("ventanaEmergente").style.display = "block";
+        var tipo = e.features[0].properties.tipo;
 
-        const botonCerrar = document.getElementById("cerrarVentana");
+    // Comprueba si el tipo es igual a "salon".
+   
+        //alert('Marcador clickeado'+tipo);
+        mostrar(tipo);
+        mostrar_info();
+        
+        //document.getElementById("ventanaEmergente").style.display = "block";
+
+        //const botonCerrar = document.getElementById("cerrarVentana");
     
-        botonCerrar.addEventListener("click", function () {
-            ventanaEmergente.style.display = "none";
-        });
+        //botonCerrar.addEventListener("click", function () {
+        //    ventanaEmergente.style.display = "none";
+        //});
     });

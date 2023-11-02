@@ -7,6 +7,7 @@ class AreaDao
     public  function  ListarAreas()
     {
       try {
+
          $sql = "select * from area WHERE estado = 'A'";
          $objc = new ConexionBD();
          $cn = $objc->getConexionBD();
@@ -165,5 +166,6 @@ class AreaDao
        return $lista;
     }
 }
+
 
 ?>

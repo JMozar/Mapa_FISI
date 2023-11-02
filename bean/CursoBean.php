@@ -59,7 +59,6 @@ class CursoBean {
         return $this->codArea;
     }
 
-    
 
     //Setter
     public function setCodCurso($codCurso) {
@@ -106,4 +105,6 @@ class CursoBean {
         $this->codArea = $codArea;
     }
 }
+
 ?>
+

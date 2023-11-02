@@ -7,7 +7,7 @@
  require_once '../../util/ConexionBD.php';
 ?>
 
-<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -287,6 +287,7 @@
                         <br>
  
                     <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 44%;" name="btnagregar" value="ok" onclick="cargarD()">Listo</button>
+
                 </div>
             </div>
         </div>
