@@ -98,22 +98,26 @@
              
         </center>
         </table>
-<!-- Modal para agregar áreas -->
-<form method="POST" action="../controlador/area_Controlador.php?op=4" id=areas>
-    <div class="modal" id="modalAgregarArea">
+<<<<<<< Updated upstream
+=======
+
+<!-- Modal para Editar áreas -->
+<form method="POST" action="../controlador/area_Controlador.php?op=3" id=areas>
+    <div class="modal" id="modalEditarArea">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" style="position: relative; left: 25%; font-size: 28px;">DATOS DEL ÁREA</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarEditarA()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+
                     <label for="campo1" id="campo1text">Identificador:</label>
                     <label for="campo2" id="campo2text">Aforo:</label>
                     <br>
-                    <input type="text" id="campo1" name="campo1" placeholder="ID del área">
+                    <input type="text" id="campo1" name="campo1" placeholder="ID del área" required oninput="this.value = this.value.toUpperCase();">
                     
 
                     <select id="campo2" name="campo2">
@@ -122,12 +126,15 @@
                     <option value="40">40 personas</option>
                     <option value="50">50 personas</option>
                     </select>
-                    <br>
+                </div>
+                    <div class="modal-body">
+
                         <label for="campo3" id="campo3text">Nombre:</label>
                     <br>
-                        <input type="text" id="campo3" name="campo3" placeholder="Nombre del área">
-                    <br>
-
+                        <input type="text" id="campo3" name="campo3" placeholder="Nombre del área" required oninput="this.value = this.value.toUpperCase();">
+                   
+</div>
+<div class="modal-body">
                         <label for="campo4" id="campo4text">Tipo:</label>
                         <label for="campo5" id="campo5text">Pabellón:</label>
                         <label for="campo6" id="campo6text">Piso:</label>
@@ -152,17 +159,104 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                         </select>
-
-                        <br>
+                        </div>
+                        
+                        <div class="modal-body">
                         <label for="campo7" id="campo7text" style="position: relative;
                         left: 10%; ">Notas:</label>
                         <br>
                         <input type="text" id="campo7" name="campo7" placeholder="Notas del área">
+                        <br><br>
+   
+                        
+                    <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 44%;" name="btnagregar" value="ok" onclick="GuardarA()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+</div>
+</form>
+
+
+
+>>>>>>> Stashed changes
+<!-- Modal para agregar áreas -->
+<form method="POST" action="../controlador/area_Controlador.php?op=4" id=areas>
+    <div class="modal" id="modalAgregarArea">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="position: relative; left: 25%; font-size: 28px;">DATOS DEL ÁREA</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <label for="campo1" id="campo1text">Identificador:</label>
+                    <label for="campo2" id="campo2text">Aforo:</label>
+                    <br>
+                    <input type="text" id="campo1" name="campo1" placeholder="ID del área" required oninput="this.value = this.value.toUpperCase();">
+                    
+
+                    <select id="campo2" name="campo2">
+                    <option value="">Selección</option>
+                    <option value="20">20 personas</option>
+                    <option value="40">40 personas</option>
+                    <option value="50">50 personas</option>
+                    </select>
+                </div>
+                    <div class="modal-body">
+
+                        <label for="campo3" id="campo3text">Nombre:</label>
+                    <br>
+                        <input type="text" id="campo3" name="campo3" placeholder="Nombre del área" required oninput="this.value = this.value.toUpperCase();">
+                   
+</div>
+<div class="modal-body">
+                        <label for="campo4" id="campo4text">Tipo:</label>
+                        <label for="campo5" id="campo5text">Pabellón:</label>
+                        <label for="campo6" id="campo6text">Piso:</label>
                         <br>
-                        <br>
+                        <select id="campo4" name="campo4">
+                            <option value="">Selección</option>
+                            <option value="A">Aula</option>
+                            <option value="L">Laboratorio</option>
+                            <option value="O">Oficina</option>
+                        </select>
+
  
+                        <select id="campo5" name="campo5">
+                            <option value="">Selección</option>
+                            <option value="ANT">Antiguo</option>
+                            <option value="NUE">Nuevo</option>
+                        </select>
+
+                        <select id="campo6" name="campo6">
+                        <option value="">Selección</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        </select>
+                        </div>
+                        
+                        <div class="modal-body">
+                        <label for="campo7" id="campo7text" style="position: relative;
+                        left: 10%; ">Notas:</label>
+                        <br>
+                        <input type="text" id="campo7" name="campo7" placeholder="Notas del área">
+                        <br><br>
+   
+                        
+ 
+<<<<<<< Updated upstream
                     <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 44%;" name="btnagregar" value="ok">Listo</button>
                 </div>
+=======
+                    <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 44%;" name="btnagregar" value="ok" onclick="cargarD()">Listo</button>
+                    </div>      </div>
+>>>>>>> Stashed changes
             </div>
         </div>
     </div>
