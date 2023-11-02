@@ -14,6 +14,11 @@ switch($op)
     $objCursoDao=new CursoDao();
     $lista=$objCursoDao->ListarCursos();
     $_SESSION['LISTA']=$lista; // estoy guardado en  SEsion;
+    //$_SESSION['LISTA1']=$lista1; // estoy guardado en  SEsion;
+
+    $lista1=$objCursoDao->ListarCod();
+    $_SESSION['LISTA1']=$lista1; // estoy guardado en  SEsion;
+    
     header('Location:../vista/frm_cursos.php');
 
     break;}
