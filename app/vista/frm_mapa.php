@@ -27,6 +27,7 @@ foreach($info  as $reg  ){}
     <!--API de mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@turf/turf@latest/turf.min.js"></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <!--Agregar BootStrap al proyecto (CSS)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -48,7 +49,22 @@ foreach($info  as $reg  ){}
             //botonAula105.style.borderStyle = 'solid';
         }
     </script>
-
+    <style>
+        
+    </style>
+    <script>
+        // Función para alternar la selección de los botones
+        function toggleButton(buttonId) {
+            var buttons = document.querySelectorAll(".toggle-button");
+            buttons.forEach(function(button) {
+                if (button.id === buttonId) {
+                    button.classList.add("active"); // Selecciona el botón clicado
+                } else {
+                    button.classList.remove("active"); // Deselecciona los demás botones
+                }
+            });
+        }
+    </script>
     
 </head>
 <body>
@@ -100,17 +116,15 @@ foreach($info  as $reg  ){}
 
     
   
-<!-- Zonas flotantes-->    
+<!-- Zonas flotantes
+<button class="toggle-button" id="button1" onclick="toggleLayer(1)">1</button>
+-->    
   <div class="navegador">
-        <button type="button">1P</button>
-        <button type="button">2P</button>
-        <button type="button">3P</button>
+  <button class="toggle-button active" id="button1" onclick="toggleButton('button1'), toggleLayer(1)">1</button>
+    <button class="toggle-button" id="button2" onclick="toggleButton('button2'), toggleLayer(2)">2</button>
+    <button class="toggle-button" id="button3" onclick="toggleButton('button3'), toggleLayer(3)">3</button>
+
     </div>
-    <div class="zoom">
-         <button type="button">+</button>
-         <button type="button">-</button>
-    </div>
-  
 
 
 
