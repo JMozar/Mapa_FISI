@@ -106,19 +106,7 @@ position: relative;
     display: block;
 }
 
-/*Estilo de los botones de zoom*/
-.zoom{
-    position: absolute;
-    z-index: 1;
-    right: 1rem;
-    bottom: 1.2rem;
-}
-/*Estilo de los botones de los pisos*/
-.zoom button{
-    width: 30px;
-    height: 30px;
-    font-size: 1em;
-}
+
 /*Contenedor de los botones de salon*/
 .botones_salon{
     position: absolute;
@@ -213,13 +201,14 @@ table {
     border: 2px solid;
 }
 #searchResults li:hover {
-    background-color: rgb(49, 214, 115);
+    background-color:#68141C;
 }
 #searchResults a {
     text-decoration: none;
     cursor: pointer;
     color: rgb(0, 0, 0);
 }
+
 table {
     width: 100%; 
     font-size: 100%;/*Antes estaba en 150%*/
@@ -339,3 +328,13 @@ table {
     border-radius: 1rem;
 }
 
+/*Botones del cambio de pisos*/
+.toggle-button {
+    font-size: 1em;
+    cursor: pointer;
+    
+}
+.toggle-button.active {
+    background-color: #68141C; /* Cambia el color como desees */
+    color: #fff;
+}
