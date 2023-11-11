@@ -106,12 +106,6 @@ foreach($info  as $reg  ){}
 
         </div>
 
-        <div id="temporal">
-            <button type="button" onclick="mostrarRuta()">Ruta</button>
-            
-    
-    </div>
-
      </div>
 
     
