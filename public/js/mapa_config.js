@@ -427,7 +427,7 @@ map.on('load', () => {
         if (codigo != null) {
             mostrar(codigo);
             mostrar_info();
-        }
+        
 
     //¨Para pintar un poligono    
     // Obtiene el identificador único del polígono clicado. codigo
@@ -457,7 +457,9 @@ map.on('load', () => {
         ['==', ['get', 'codigo'], featureId],
         '#68141C',
         '#fff' // color predeterminado de la capa
-      ]); 
+      ]);
+      
+    }  
     }
 
     
