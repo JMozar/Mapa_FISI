@@ -96,21 +96,16 @@ foreach($info  as $reg  ){}
             <!-- Aquí se agregarán los elementos coincidentes -->
         </ul>
 
-    <div id="pantalla_mapa" >
+    <div id="pantalla_mapa"  >
         
 
         <input type="hidden" name="op"/> <!--OPPPPPPPPP-->
-        <!--Pantala principal del mapa-->        
-        <div class="botones" id="cambia_MapaHorario">
+        <!--Pantala principal del mapa-->
+
+        <div class="botones" id="cambia_MapaHorario" style="display: none;">
             <button type="button">Ver Horario</button>
 
         </div>
-
-        <div id="temporal">
-            <button type="button" onclick="mostrarRuta()">Ruta</button>
-            
-    
-    </div>
 
      </div>
 
@@ -260,47 +255,32 @@ var cerrarVentanaHorarioBtn = document.getElementById('cerrarVentanaHorarioBtn')
 // Función para ocultar ventana y mostrar botón
 function ocultarVentanaYMostrarBoton(ventana, boton) {
     ventana.style.display = 'none';
-    boton.style.display = 'block';
+    //boton.style.display = 'block';
 }
 
 // Agrega un evento de clic al botón de cierre de la ventana del salón 105
 cerrarSalonBtn.addEventListener('click', function() {
     ocultarVentanaYMostrarBoton(ventanaEmergenteSalon, botonAula105);
     ocultarVentanaYMostrarBoton(ventanaEmergenteSalon, botonMostrarHorario);
-    botonAula105.style.borderWidth = '2px';
-    botonAula105.style.borderColor = 'black';
-    botonAula105.style.borderStyle = 'solid';
+    //botonAula105.style.borderWidth = '2px';
+    //botonAula105.style.borderColor = 'black';
+    //botonAula105.style.borderStyle = 'solid';
 });
-// Agrega un evento de clic al botón "106"
-botonAula106.addEventListener('click', function() {
-    ventanaEmergenteSalon2.style.display = 'block';
-    botonAula106.style.display = 'block';
-    botonMostrarHorario.style.display = 'none';
-    botonAula106.style.borderWidth = '13px';
-    botonAula106.style.borderColor = '#68141C';
-    botonAula106.style.borderStyle = 'solid';
-});
-// Agrega un evento de clic al botón de cierre de la ventana del salón 106
-cerrarSalonBtn2.addEventListener('click', function() {
-    ocultarVentanaYMostrarBoton(ventanaEmergenteSalon2, botonAula106);
-    ocultarVentanaYMostrarBoton(ventanaEmergenteSalon2, botonMostrarHorario);
-    botonAula106.style.borderWidth = '2px';
-    botonAula106.style.borderColor = 'black';
-    botonAula106.style.borderStyle = 'solid';
-});
+
+
 // Agrega un evento de clic al botón "Vista horario"
 botonMostrarHorario.addEventListener('click', function() {
     ventanaEmergenteHorario.style.display = 'block';
-    botonMostrarHorario.style.display = 'none';
-    botonAula105.style.display = 'none';
-    botonAula106.style.display = 'none';
+    //botonMostrarHorario.style.display = 'none';
+    //botonAula105.style.display = 'none';
+    //botonAula106.style.display = 'none';
 });
 // Agrega un evento de clic al botón de cierre de la ventana de horario
 cerrarVentanaHorarioBtn.addEventListener('click', function() {
     ventanaEmergenteHorario.style.display = 'none';
-    botonMostrarHorario.style.display = 'block';
-    botonAula105.style.display = 'block';
-    botonAula106.style.display = 'block';
+    //botonMostrarHorario.style.display = 'block';
+    //botonAula105.style.display = 'block';
+    //botonAula106.style.display = 'block';
 });
 </script>
 </body>
