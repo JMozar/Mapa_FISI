@@ -2,6 +2,7 @@
 require_once '../util/ConexionBD.php';
 
 // Ingreso a la plataforma
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST["usuario"];
     $contrasena = $_POST["contrasena"];
@@ -21,7 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             setcookie('recordar_contrasena', $contrasena, $expire, '/');
         }
         // Permitir el acceso al sistema
-        header("Location: ../app/controlador/usu_controlador.php?accion=navegar_a_cursos");
+        //window.location.href = "../controlador/curso_controlador.php?op=1";
+        //header("Location: ../app/controlador/usu_controlador.php?accion=navegar_a_cursos");
+        header("Location: ../app/controlador/curso_controlador.php?op=1");
+
+
     } else {
         // Si no son correctas las credenciales mandar un alert
         echo "<script>alert('Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.');

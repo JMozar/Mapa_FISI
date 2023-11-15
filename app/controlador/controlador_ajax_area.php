@@ -49,4 +49,6 @@ echo '<p class="cabecera_salon">'.$reg['nombre'].'</p>';
         echo "NO SE REALIZA NINGUN CURSO EN ESTA AREA.";
     }
     
+
 ?>
+

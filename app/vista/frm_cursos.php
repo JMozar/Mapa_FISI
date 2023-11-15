@@ -1,10 +1,10 @@
 <?php 
  session_start();// la sesion se esta manteniendo activa
  $lista=$_SESSION['LISTA'];
+ $lista1=$_SESSION['LISTA1'];
  require_once '../../dao/AreaDao.php';
  require_once '../../dao/CursoDao.php';
  require_once '../../util/ConexionBD.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +43,48 @@
         var modal = document.getElementById('modalAgregarArea');
         modal.style.display = 'none';
         }
+
+        function cargarD(){
+            window.location.href = "../controlador/curso_Controlador.php?op=5";
+        }
+
+        function abrirEditar(button) {
+    var modal = document.getElementById('modalEditarCurso');
+
+    // Obtener los valores de los atributos de datos del botón
+    var codigoCurso = button.getAttribute('data-codigo-curso');
+    var codigoArea = button.getAttribute('data-codigo-area');
+    var nombreCurso = button.getAttribute('data-nombre-curso');
+    var grupoCurso = button.getAttribute('data-grupo-curso');
+    var modoCurso = button.getAttribute('data-modo-curso');
+    var diaCurso = button.getAttribute('data-dia-curso');
+    var horaEntrada = button.getAttribute('data-hora-entrada');
+    var horaSalida = button.getAttribute('data-hora-salida');
+    var profesorApe = button.getAttribute('data-profesor-ape');
+    var profesorNomb = button.getAttribute('data-profesor-nomb');
+
+    // Rellenar los campos del modal con los valores
+    document.getElementById('campo1').value = codigoCurso;
+    document.getElementById('campo2').value = codigoArea;
+    document.getElementById('campo3').value = nombreCurso;
+    document.getElementById('campo4').value = grupoCurso;
+    document.getElementById('campo5').value = modoCurso;
+    document.getElementById('campo6').value = diaCurso;
+    document.getElementById('campo7').value = horaEntrada;
+    document.getElementById('campo8').value = horaSalida;
+    document.getElementById('campo9').value = profesorApe;
+    document.getElementById('campo10').value = profesorNomb;
+
+    modal.style.display = 'block';
+}
+
+
+        function cerrarEditar() {
+        var modal = document.getElementById('modalEditarCurso');
+        modal.style.display = 'none';
+        }
+
+
     </script>
 </head>
 <body id="body">
@@ -54,11 +96,11 @@
         </div>
     </header>
     <div class="contenedor">
-        <article>
-        <div class="boton-bloque" onclick="redirigir_cursos()" style="background-color: #68141C; color: white;">Cursos</div>
+        <aside>
+        <div class="boton-bloque" onclick="redirigir_cursos() ,cargarD()" style="background-color: #68141C; color: white;">Cursos</div>
         <div class="boton-bloque" onclick="redirigir_areas()">Áreas</div>
-          </article>
-    <aside>
+          </aside>
+    <article>
         <div>
             <h2 class="h2_aside">ADMINISTRACIÓN DE CURSOS</h2>  
             <div class="boton-bloque-agregar" onclick="abrirModal()">Agregar Curso</div>       
@@ -90,18 +132,32 @@
         echo '<td>' . $reg['profesor_ape'] . '</td>';
         echo '<td>' . $reg['profesor_nomb'] . '</td>';
         echo '<td>' . $reg['codigo_area'] . '</td>';
-        echo '<td><img src="/public/img/editar.png"><img src="/public/img/eliminar.png"></td>';
+        echo '<td> <button class="boton-editar" onclick="abrirEditar(this)" ' .
+            'data-codigo-curso="' . $reg['codigo_curso'] . '" ' .
+            'data-codigo-area="' . $reg['codigo_area'] . '" ' .
+            'data-nombre-curso="' . $reg['nombre'] . '" ' .
+            'data-grupo-curso="' . $reg['grupo'] . '" ' .
+            'data-modo-curso="' . $reg['modo'] . '" ' .
+            'data-dia-curso="' . $reg['dia'] . '" ' .
+            'data-hora-entrada="' . $reg['hora_entrada'] . '" ' .
+            'data-hora-salida="' . $reg['hora_salida'] . '" ' .
+            'data-profesor-ape="' . $reg['profesor_ape'] . '" ' .
+            'data-profesor-nomb="' . $reg['profesor_nomb'] . '"><img src="/public/img/editar.png" alt="Editar"></button>';
+            echo '<td>' .
+            '<form method="POST" action="../controlador/curso_controlador.php?op=2" onsubmit="return confirm(\'¿Estás seguro de que deseas eliminar este curso?\');">' .
+            '<input type="hidden" name="codigo_curso" value="' . $reg['codigo_curso'] . '">' .
+            '<button type="submit" class="boton-eliminar"> <img src="/public/img/eliminar.png" alt="Eliminar"></button>' .
+            '</form>' .
+            '</td>';
+             
         echo '</tr>';
     }
     ?> 
             
         </center>
         </table>      
-    </aside>
+    </article>
     </div>
-<<<<<<< Updated upstream
-<!-- Modal para agregar áreas -->
-=======
 
 <!-- Modal para editar cursos -->
 <form method="POST" action="../controlador/curso_controlador.php?op=3">
@@ -213,8 +269,7 @@
   </aside>
     </div>
 </form>
-<!-- Modal para agregar cursos -->
->>>>>>> Stashed changes
+<!-- Modal para agregar áreas -->
 <form method="POST" action="../controlador/curso_controlador.php?op=4">
 <div class="modal" id="modalAgregarArea" >
   <div class="modal-dialog">
@@ -234,9 +289,11 @@
 
             <select id="campo2" name="campo2" placeholder="Selección">
             <option value="">Selección</option>
-            <option value="SA105">Aula 105</option>
-            <option value="opcion2">Aula 103</option>
-            <option value="opcion3">LAB 04</option>
+            <?php
+            foreach ($lista1 as $reg) {
+        echo '<option value=' . $reg['codigo_area'] . '>' . $reg['nombre'] . '</option>';
+    }
+    ?> 
             </select>
     </div>
 
@@ -313,7 +370,9 @@
         </div>
   
         <br>
-        <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 42%; width:100px;bottom:20px" name="btnagregar" value="ok" >Listo</button>
+
+        <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 42%; width:100px;bottom:20px" name="btnagregar" value="ok">Listo</button>
+
       </div>
     </div>
   </div>

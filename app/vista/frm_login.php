@@ -1,7 +1,6 @@
-
 <?php 
  session_start();// la sesion se esta manteniendo activa
- $lista=$_SESSION['LISTA'];
+ //$lista=$_SESSION['LISTA'];
  require_once '../../dao/AreaDao.php';
  require_once '../../dao/CursoDao.php';
  require_once '../../util/ConexionBD.php';
@@ -48,7 +47,7 @@
      <!-- Login -->
      <div class="container_">
         <!--<form action="procesar_login.php" method="post">-->
-        <form>
+        <form action="../../dao/LoginDao.php" method="post">
 
             <img src="../../public/img/unmsm.png" alt="Imagen UNMSM">
             <div>
@@ -66,13 +65,12 @@
             <div>
 
             <input type="submit" value="Entrar" id="btn_enviar">
-            <button type="button" onclick="mostrarinfo()" id="btn_enviar">Entrar</button>
             <!--<input type="submit" value="Entrar" id="btn_enviar" >-->  
             <a href="frm_mapa.php" style="display:block" >Volver</a>
             </div>
         </form>        
      </div>
-
+     <script src="../../public/js/login.js"></script>
 </body>
 <script type="text/javascript" src="../../public/js/mapa_config.js"></script> 
 
