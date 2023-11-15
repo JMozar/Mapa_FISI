@@ -53,7 +53,7 @@ function realizarBusqueda() {
                 //resultLink.href = ''; // Agrega la URL de destino.
                 
 
-                resultLink.textContent = result; // Suponiendo que el resultado tiene una propiedad "nombre".
+                resultLink.textContent = result['nombre']; // Suponiendo que el resultado tiene una propiedad "nombre".
                 
                 resultItem.appendChild(resultLink);
 
@@ -61,9 +61,13 @@ function realizarBusqueda() {
 
                 //Agregamos el evento para mostrar la info de las areas
                 resultLink.addEventListener('click', function(){
-                  //alert ("Hola");
-                  mostrar(result);
-                  mostrar_info();
+                  //alert (result['codigo_area']);
+                  
+                  //generamos los eventos en el mapa
+                  const polygonCode = result['codigo_area'];
+                  colorear_mostrar(polygonCode)
+                  //mostrar(result['codigo_area']);
+                  //mostrar_info();
                 });
             });
         }
