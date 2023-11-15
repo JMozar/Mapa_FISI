@@ -96,11 +96,11 @@
         </div>
     </header>
     <div class="contenedor">
-        <article>
+        <aside>
         <div class="boton-bloque" onclick="redirigir_cursos() ,cargarD()" style="background-color: #68141C; color: white;">Cursos</div>
         <div class="boton-bloque" onclick="redirigir_areas()">Áreas</div>
-          </article>
-    <aside>
+          </aside>
+    <article>
         <div>
             <h2 class="h2_aside">ADMINISTRACIÓN DE CURSOS</h2>  
             <div class="boton-bloque-agregar" onclick="abrirModal()">Agregar Curso</div>       
@@ -156,7 +156,7 @@
             
         </center>
         </table>      
-    </aside>
+    </article>
     </div>
 
 <!-- Modal para editar cursos -->
@@ -187,7 +187,6 @@
     ?> 
             </select>
     </div>
-
 
 
             <label for="campo3" id="campo3text">Nombre del curso:</label>
