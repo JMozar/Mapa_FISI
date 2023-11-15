@@ -12,14 +12,14 @@ class ConsultaBD
         if ($cn) {
             $filtro = mysqli_real_escape_string($cn, $filtro); // Evitar inyección SQL
 
-            $query = "SELECT nombre FROM area WHERE nombre LIKE '$filtro%'";
+            $query = "SELECT codigo_area,nombre FROM area WHERE nombre LIKE '$filtro%'";
             $result = mysqli_query($cn, $query);
 
             if ($result) {
                 $nombres = array();
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $nombres[] = $row['nombre'];
+                    $nombres[] = $row;
                 }
 
                 mysqli_free_result($result);
@@ -42,12 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($data && isset($data->filter)) {
         $consultaBD = new ConsultaBD();
-        $nombres = $consultaBD->obtenerNombresPorFiltro($data->filter);
 
-        if ($nombres !== false) {
+        $datos = $consultaBD->obtenerNombresPorFiltro($data->filter);
+
+        if ($datos !== false) {
             // Devolver los nombres encontrados como respuesta JSON
             header('Content-Type: application/json');
-            echo json_encode($nombres);
+            echo json_encode($datos);
         } else {
             header("HTTP/1.1 500 Internal Server Error");
             echo json_encode(array("message" => "Error en la consulta"));
