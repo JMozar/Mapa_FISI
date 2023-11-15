@@ -146,7 +146,9 @@
     ?> 
              
         </table>
+
     </article>
+
 
 <!-- Modal para Editar áreas -->
 <form method="POST" action="../controlador/area_Controlador.php?op=3" id=areas>

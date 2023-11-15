@@ -189,7 +189,6 @@
     </div>
 
 
-
             <label for="campo3" id="campo3text">Nombre del curso:</label>
             <input type="text" id="campo3" name="campo3" required oninput="this.value = this.value.toUpperCase();">
             <br>
