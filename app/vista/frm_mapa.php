@@ -88,7 +88,7 @@ foreach($info  as $reg  ){}
         <form class="buscador d-flex" role="search">
             <input id="txtSearch" class="form-control me-2" type="search" placeholder="¿A donde vamos?"
                 aria-label="Search">
-            <button id="btnSearch" class="btn btn-outline-success" type="submit">Buscar</button>
+            <!-- <button id="btnSearch" class="btn btn-outline-success" type="submit">Buscar</button> -->
         </form>
 
         <!-- Lista para mostrar los resultados -->
