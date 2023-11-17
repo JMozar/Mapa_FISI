@@ -63,6 +63,8 @@ position: relative;
 }
 /*Estilos clase buscador*/
 .buscador{
+    margin-left: 1.5em;
+    margin-top: 1.5em;
     position: absolute;
     z-index: 1;
 }
@@ -190,24 +192,29 @@ table {
 }
 /* BARRA DE BÚSQUEDA */
 #searchResults{
-    margin-top: 60px;
+    margin-top: 75px;
     position: absolute;
     z-index: 2;
 }
 #searchResults li {
+    width: 13em;
     background-color: white;
-    padding: 7px 2px 7px 2px;
+    padding: 7px 2px 7px 10px;
     list-style-type: none;
-    border: 2px solid;
+    border-radius: 3%;
+    border: 1px solid #888888;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 #searchResults li:hover {
-    background-color:#68141C;
+    background-color: #a13641;
+    transition: background-color 0.3s ease;
 }
 #searchResults a {
     text-decoration: none;
     cursor: pointer;
     color: rgb(0, 0, 0);
 }
+
 
 table {
     width: 100%; 
