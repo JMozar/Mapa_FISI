@@ -116,7 +116,10 @@ class CursoDao
         VALUES ('$codCurso', '$nombCurso', '$grupoCurso', '$horaEntrada', '$horaSalida', '$modoCurso', '$diaCurso', '$profesorApe', '$profesorNomb', '$codArea')";
         // Ejecuta la consulta SQL
         $res = mysqli_query($cn, $sql);
-        
+
+        $sql = "UPDATE curso SET estado = 'A'
+        WHERE codigo_curso = '$codCurso'";
+        $res = mysqli_query($cn, $sql);
         // Cierra la conexión
         mysqli_close($cn);
         // Devuelve el resultado de la ejecución (true o false, por ejemplo)

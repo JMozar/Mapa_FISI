@@ -27,6 +27,7 @@ foreach($info  as $reg  ){}
     <!--API de mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@turf/turf@latest/turf.min.js"></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <!--Agregar BootStrap al proyecto (CSS)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -48,7 +49,22 @@ foreach($info  as $reg  ){}
             //botonAula105.style.borderStyle = 'solid';
         }
     </script>
-
+    <style>
+        
+    </style>
+    <script>
+        // Función para alternar la selección de los botones
+        function toggleButton(buttonId) {
+            var buttons = document.querySelectorAll(".toggle-button");
+            buttons.forEach(function(button) {
+                if (button.id === buttonId) {
+                    button.classList.add("active"); // Selecciona el botón clicado
+                } else {
+                    button.classList.remove("active"); // Deselecciona los demás botones
+                }
+            });
+        }
+    </script>
     
 </head>
 <body>
@@ -72,7 +88,7 @@ foreach($info  as $reg  ){}
         <form class="buscador d-flex" role="search">
             <input id="txtSearch" class="form-control me-2" type="search" placeholder="¿A donde vamos?"
                 aria-label="Search">
-            <button id="btnSearch" class="btn btn-outline-success" type="submit">Buscar</button>
+            <!-- <button id="btnSearch" class="btn btn-outline-success" type="submit">Buscar</button> -->
         </form>
 
         <!-- Lista para mostrar los resultados -->
@@ -80,37 +96,30 @@ foreach($info  as $reg  ){}
             <!-- Aquí se agregarán los elementos coincidentes -->
         </ul>
 
-    <div id="pantalla_mapa" >
+    <div id="pantalla_mapa"  >
         
 
         <input type="hidden" name="op"/> <!--OPPPPPPPPP-->
-        <!--Pantala principal del mapa-->        
-        <div class="botones" id="cambia_MapaHorario">
+        <!--Pantala principal del mapa-->
+
+        <div class="botones" id="cambia_MapaHorario" style="display: none;">
             <button type="button">Ver Horario</button>
 
         </div>
-
-        <div id="temporal">
-            <button type="button" onclick="mostrarRuta()">Ruta</button>
-            
-    
-    </div>
 
      </div>
 
     
   
-<!-- Zonas flotantes-->    
+<!-- Zonas flotantes
+<button class="toggle-button" id="button1" onclick="toggleLayer(1)">1</button>
+-->    
   <div class="navegador">
-        <button type="button">1P</button>
-        <button type="button">2P</button>
-        <button type="button">3P</button>
+  <button class="toggle-button active" id="button1" onclick="toggleButton('button1'), toggleLayer(1)">1</button>
+    <button class="toggle-button" id="button2" onclick="toggleButton('button2'), toggleLayer(2)">2</button>
+    <button class="toggle-button" id="button3" onclick="toggleButton('button3'), toggleLayer(3)">3</button>
+
     </div>
-    <div class="zoom">
-         <button type="button">+</button>
-         <button type="button">-</button>
-    </div>
-  
 
 
 
@@ -246,47 +255,32 @@ var cerrarVentanaHorarioBtn = document.getElementById('cerrarVentanaHorarioBtn')
 // Función para ocultar ventana y mostrar botón
 function ocultarVentanaYMostrarBoton(ventana, boton) {
     ventana.style.display = 'none';
-    boton.style.display = 'block';
+    //boton.style.display = 'block';
 }
 
 // Agrega un evento de clic al botón de cierre de la ventana del salón 105
 cerrarSalonBtn.addEventListener('click', function() {
     ocultarVentanaYMostrarBoton(ventanaEmergenteSalon, botonAula105);
     ocultarVentanaYMostrarBoton(ventanaEmergenteSalon, botonMostrarHorario);
-    botonAula105.style.borderWidth = '2px';
-    botonAula105.style.borderColor = 'black';
-    botonAula105.style.borderStyle = 'solid';
+    //botonAula105.style.borderWidth = '2px';
+    //botonAula105.style.borderColor = 'black';
+    //botonAula105.style.borderStyle = 'solid';
 });
-// Agrega un evento de clic al botón "106"
-botonAula106.addEventListener('click', function() {
-    ventanaEmergenteSalon2.style.display = 'block';
-    botonAula106.style.display = 'block';
-    botonMostrarHorario.style.display = 'none';
-    botonAula106.style.borderWidth = '13px';
-    botonAula106.style.borderColor = '#68141C';
-    botonAula106.style.borderStyle = 'solid';
-});
-// Agrega un evento de clic al botón de cierre de la ventana del salón 106
-cerrarSalonBtn2.addEventListener('click', function() {
-    ocultarVentanaYMostrarBoton(ventanaEmergenteSalon2, botonAula106);
-    ocultarVentanaYMostrarBoton(ventanaEmergenteSalon2, botonMostrarHorario);
-    botonAula106.style.borderWidth = '2px';
-    botonAula106.style.borderColor = 'black';
-    botonAula106.style.borderStyle = 'solid';
-});
+
+
 // Agrega un evento de clic al botón "Vista horario"
 botonMostrarHorario.addEventListener('click', function() {
     ventanaEmergenteHorario.style.display = 'block';
-    botonMostrarHorario.style.display = 'none';
-    botonAula105.style.display = 'none';
-    botonAula106.style.display = 'none';
+    //botonMostrarHorario.style.display = 'none';
+    //botonAula105.style.display = 'none';
+    //botonAula106.style.display = 'none';
 });
 // Agrega un evento de clic al botón de cierre de la ventana de horario
 cerrarVentanaHorarioBtn.addEventListener('click', function() {
     ventanaEmergenteHorario.style.display = 'none';
-    botonMostrarHorario.style.display = 'block';
-    botonAula105.style.display = 'block';
-    botonAula106.style.display = 'block';
+    //botonMostrarHorario.style.display = 'block';
+    //botonAula105.style.display = 'block';
+    //botonAula106.style.display = 'block';
 });
 </script>
 </body>

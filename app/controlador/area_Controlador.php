@@ -12,6 +12,7 @@ switch($op)
     $objAreaDao=new AreaDao();
     $lista=$objAreaDao->ListarAreas();
     $_SESSION['LISTA']=$lista; // estoy guardado en  SEsion;
+    //$_SESSION['LISTA1']=$lista1; // estoy guardado en  SEsion;
     header('Location:../vista/frm_areas.php');
     
     break;}

@@ -166,6 +166,7 @@
 <label for="campo1" id="campo1text">Identificador:</label>
 <label for="campo2" id="campo2text">Aforo:</label>
 <br>
+
 <input type="text" id="campo1" name="campo1" placeholder="ID del área" required oninput="this.value = this.value.toUpperCase();" readonly>
 
 
@@ -194,6 +195,7 @@
         <option value="L">Laboratorio</option>
         <option value="O">Oficina</option>
         <option value="X">Otro</option>
+
     </select>
 
 
@@ -202,6 +204,7 @@
         <option value="ANT">Antiguo</option>
         <option value="NUE">Nuevo</option>
         <option value="OTR">Otro</option>
+
     </select>
 
     <select id="campo6" name="campo6">

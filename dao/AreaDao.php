@@ -91,6 +91,11 @@ class AreaDao
         // Ejecuta la consulta SQL
         $res = mysqli_query($cn, $sql);
         
+        $sql = "UPDATE area SET estado = 'A'
+        WHERE codigo_area = '$codArea'";
+        
+         $res = mysqli_query($cn, $sql);
+
         // Cierra la conexión
         mysqli_close($cn);
         // Devuelve el resultado de la ejecución (true o false, por ejemplo)

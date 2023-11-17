@@ -63,6 +63,8 @@ position: relative;
 }
 /*Estilos clase buscador*/
 .buscador{
+    margin-left: 1.5em;
+    margin-top: 1.5em;
     position: absolute;
     z-index: 1;
 }
@@ -106,19 +108,7 @@ position: relative;
     display: block;
 }
 
-/*Estilo de los botones de zoom*/
-.zoom{
-    position: absolute;
-    z-index: 1;
-    right: 1rem;
-    bottom: 1.2rem;
-}
-/*Estilo de los botones de los pisos*/
-.zoom button{
-    width: 30px;
-    height: 30px;
-    font-size: 1em;
-}
+
 /*Contenedor de los botones de salon*/
 .botones_salon{
     position: absolute;
@@ -202,24 +192,30 @@ table {
 }
 /* BARRA DE BÚSQUEDA */
 #searchResults{
-    margin-top: 60px;
+    margin-top: 75px;
     position: absolute;
     z-index: 2;
 }
 #searchResults li {
+    width: 13em;
     background-color: white;
-    padding: 7px 2px 7px 2px;
+    padding: 7px 2px 7px 10px;
     list-style-type: none;
-    border: 2px solid;
+    border-radius: 3%;
+    border: 1px solid #888888;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 #searchResults li:hover {
-    background-color: rgb(49, 214, 115);
+    background-color: #a13641;
+    transition: background-color 0.3s ease;
 }
 #searchResults a {
     text-decoration: none;
     cursor: pointer;
     color: rgb(0, 0, 0);
 }
+
+
 table {
     width: 100%; 
     font-size: 100%;/*Antes estaba en 150%*/
@@ -339,3 +335,13 @@ table {
     border-radius: 1rem;
 }
 
+/*Botones del cambio de pisos*/
+.toggle-button {
+    font-size: 1em;
+    cursor: pointer;
+    
+}
+.toggle-button.active {
+    background-color: #68141C; /* Cambia el color como desees */
+    color: #fff;
+}
