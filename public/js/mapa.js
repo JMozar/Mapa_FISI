@@ -17,6 +17,12 @@ searchForm.addEventListener('submit', function(event) {
 searchInput.addEventListener('input', function() {
   realizarBusqueda();
 });
+/* 
+foreach ($lista as $reg) {
+        echo '<tr id="fila">';
+        echo '<td>' . $reg['codigo_area'] . '</td>';
+*/
+
 
 // ...
 
@@ -44,11 +50,25 @@ function realizarBusqueda() {
                 const resultItem = document.createElement('li');
 
                 const resultLink = document.createElement('a');
-                resultLink.href = ''; // Agrega la URL de destino.
-                resultLink.textContent = result; // Suponiendo que el resultado tiene una propiedad "nombre".
+                //resultLink.href = ''; // Agrega la URL de destino.
+                
+
+                resultLink.textContent = result['nombre']; // Suponiendo que el resultado tiene una propiedad "nombre".
+                
                 resultItem.appendChild(resultLink);
 
                 document.getElementById('searchResults').appendChild(resultItem);
+
+                //Agregamos el evento para mostrar la info de las areas
+                resultLink.addEventListener('click', function(){
+                  //alert (result['codigo_area']);
+                  
+                  //generamos los eventos en el mapa
+                  const polygonCode = result['codigo_area'];
+                  colorear_mostrar(polygonCode)
+                  //mostrar(result['codigo_area']);
+                  //mostrar_info();
+                });
             });
         }
     })
