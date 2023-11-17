@@ -209,6 +209,9 @@
             <option value="">Selección</option>
             <option value=1>1</option>
             <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
         </select>
 
    
@@ -236,8 +239,7 @@
     <label for="campo7" id="campo7text">Hora Inicio:</label>
     <label for="campo8" id="campo8text">Hora Fin:</label>
     <br>
-
-            <select id="campo7" name="campo7"  >
+            <select id="campo7" name="campo7" >
             <option value="">Selección</option>
             <option value="08:00:00">08:00 AM</option>
             <option value="09:00:00">09:00 AM</option>
@@ -245,8 +247,15 @@
             <option value="11:00:00">11:00 AM</option>
             <option value="12:00:00">12:00 AM</option>
             <option value="13:00:00">1:00 PM</option>
-        </select>
-
+            <option value="14:00:00">2:00 PM</option>
+            <option value="15:00:00">3:00 PM</option>
+            <option value="16:00:00">4:00 PM</option>
+            <option value="17:00:00">5:00 PM</option>
+            <option value="18:00:00">6:00 PM</option>
+            <option value="19:00:00">7:00 PM</option>
+            <option value="20:00:00">8:00 PM</option>
+            <option value="21:00:00">9:00 PM</option>
+            </select>
     
             <select id="campo8" name="campo8" >
             <option value="">Selección</option>
@@ -256,11 +265,19 @@
             <option value="12:00:00">12:00 AM</option>
             <option value="13:00:00">1:00 PM</option>
             <option value="14:00:00">2:00 PM</option>
+            <option value="15:00:00">3:00 PM</option>
+            <option value="16:00:00">4:00 PM</option>
+            <option value="17:00:00">5:00 PM</option>
+            <option value="18:00:00">6:00 PM</option>
+            <option value="19:00:00">7:00 PM</option>
+            <option value="20:00:00">8:00 PM</option>
+            <option value="21:00:00">9:00 PM</option>
+            <option value="22:00:00">10:00 PM</option>
         </select>
         </div>
   
         <br>
-        <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 42%; width:100px;bottom:20px" name="btnGuardar" value="ok" >Guardar</button>
+        <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 42%; width:100px;bottom:10px" name="btnGuardar" value="ok" >Guardar</button>
       </div>
     </div>
   </div>
@@ -318,6 +335,9 @@
             <option value="">Selección</option>
             <option value=1>1</option>
             <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
         </select>
 
    
@@ -354,6 +374,14 @@
             <option value="11:00:00">11:00 AM</option>
             <option value="12:00:00">12:00 AM</option>
             <option value="13:00:00">1:00 PM</option>
+            <option value="14:00:00">2:00 PM</option>
+            <option value="15:00:00">3:00 PM</option>
+            <option value="16:00:00">4:00 PM</option>
+            <option value="17:00:00">5:00 PM</option>
+            <option value="18:00:00">6:00 PM</option>
+            <option value="19:00:00">7:00 PM</option>
+            <option value="20:00:00">8:00 PM</option>
+            <option value="21:00:00">9:00 PM</option>
         </select>
 
     
@@ -365,12 +393,20 @@
             <option value="12:00:00">12:00 AM</option>
             <option value="13:00:00">1:00 PM</option>
             <option value="14:00:00">2:00 PM</option>
+            <option value="15:00:00">3:00 PM</option>
+            <option value="16:00:00">4:00 PM</option>
+            <option value="17:00:00">5:00 PM</option>
+            <option value="18:00:00">6:00 PM</option>
+            <option value="19:00:00">7:00 PM</option>
+            <option value="20:00:00">8:00 PM</option>
+            <option value="21:00:00">9:00 PM</option>
+            <option value="22:00:00">10:00 PM</option>
         </select>
         </div>
   
         <br>
 
-        <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 42%; width:100px;bottom:20px" name="btnagregar" value="ok">Listo</button>
+        <button type="submit" class="btn btn-primary" style="background-color: #68141C;position: relative;left: 42%; width:100px;bottom:10px" name="btnagregar" value="ok">Listo</button>
 
       </div>
     </div>

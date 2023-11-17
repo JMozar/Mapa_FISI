@@ -166,7 +166,8 @@
 <label for="campo1" id="campo1text">Identificador:</label>
 <label for="campo2" id="campo2text">Aforo:</label>
 <br>
-<input type="text" id="campo1" name="campo1" placeholder="ID del área" required oninput="this.value = this.value.toUpperCase();">
+
+<input type="text" id="campo1" name="campo1" placeholder="ID del área" required oninput="this.value = this.value.toUpperCase();" readonly>
 
 
 <select id="campo2" name="campo2">
@@ -193,6 +194,8 @@
         <option value="A">Aula</option>
         <option value="L">Laboratorio</option>
         <option value="O">Oficina</option>
+        <option value="X">Otro</option>
+
     </select>
 
 
@@ -200,6 +203,8 @@
         <option value="">Selección</option>
         <option value="ANT">Antiguo</option>
         <option value="NUE">Nuevo</option>
+        <option value="OTR">Otro</option>
+
     </select>
 
     <select id="campo6" name="campo6">
@@ -270,6 +275,7 @@
                             <option value="A">Aula</option>
                             <option value="L">Laboratorio</option>
                             <option value="O">Oficina</option>
+                            <option value="X">Otro</option>
                         </select>
 
  
@@ -277,6 +283,7 @@
                             <option value="">Selección</option>
                             <option value="ANT">Antiguo</option>
                             <option value="NUE">Nuevo</option>
+                            <option value="OTR">Otro</option>
                         </select>
 
                         <select id="campo6" name="campo6">
