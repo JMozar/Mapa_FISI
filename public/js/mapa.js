@@ -53,7 +53,7 @@ function realizarBusqueda() {
                 //resultLink.href = ''; // Agrega la URL de destino.
                 
 
-                resultLink.textContent = result['nombre']; // Suponiendo que el resultado tiene una propiedad "nombre".
+                resultLink.textContent = result['nombre']+"-"+result['pabellon']; // Suponiendo que el resultado tiene una propiedad "nombre".
                 
                 resultItem.appendChild(resultLink);
 
@@ -66,6 +66,18 @@ function realizarBusqueda() {
                   //generamos los eventos en el mapa
                   const polygonCode = result['codigo_area'];
                   colorear_mostrar(polygonCode)
+
+                  //guarda el piso del area buscada
+                  var piso=result['piso']
+                  //borrar los resultados de la busqueda
+                  var input = document.getElementById('txtSearch');
+                  input.value = '';
+                  //resultLink.textContent = null;
+                  document.getElementById('searchResults').innerHTML = '';
+
+                  //selecciona el piso y lo carga
+                  toggleButton("button"+piso);
+                  toggleLayer(piso);
                   //mostrar(result['codigo_area']);
                   //mostrar_info();
                 });
@@ -76,49 +88,6 @@ function realizarBusqueda() {
         console.error('Error al realizar la búsqueda:', error);
     });
 }
-
-
-/* Función de búsqueda en el archivo txt
-function realizarBusqueda() {
-    const filter = searchInput.value.toUpperCase();
-  
-    // Realiza una solicitud para cargar el contenido del archivo.
-    fetch('../../bd/salones.txt')
-      .then(response => response.text())
-      .then(data => {
-        // Divide el contenido del archivo en líneas.
-        const lines = data.split('\n');
-  
-        // Filtra las líneas que coincidan con la búsqueda.
-        const matchingLines = lines.filter(line => line.toUpperCase().includes(filter));
-  
-        // Limpia los resultados anteriores si el campo de búsqueda está vacío.
-        if (filter === '') {
-          searchResults.innerHTML = '';
-        } else {
-          // Muestra los resultados encontrados.
-          searchResults.innerHTML = '';
-          matchingLines.forEach(result => {
-            const resultItem = document.createElement('li'); // Crea un elemento <li> para cada resultado.
-  
-            // Crea un enlace (<a>) y establece su atributo href.
-            const resultLink = document.createElement('a');
-            resultLink.href = ''; // Reemplaza 'tu_pagina_destino.html' con la URL de destino.
-  
-            // Establece el texto del enlace y agrega el enlace al elemento <li>.
-            resultLink.textContent = result;
-            resultItem.appendChild(resultLink);
-  
-            // Agrega el elemento <li> a la lista de resultados.
-            searchResults.appendChild(resultItem);
-          });
-        }
-      })
-      .catch(error => {
-        console.error('Error al cargar el archivo:', error);
-      });
-
-  }*/
 
 
 function mostrarRuta(){

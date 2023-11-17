@@ -12,7 +12,7 @@ class ConsultaBD
         if ($cn) {
             $filtro = mysqli_real_escape_string($cn, $filtro); // Evitar inyección SQL
 
-            $query = "SELECT codigo_area,nombre FROM area WHERE nombre LIKE '$filtro%' LIMIT 10";
+            $query = "SELECT codigo_area,nombre,pabellon,piso FROM area WHERE nombre LIKE '$filtro%' LIMIT 10";
 
             $result = mysqli_query($cn, $query);
 

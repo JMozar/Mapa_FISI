@@ -61,11 +61,14 @@ width: 100%;
 height: 90%;
 position: relative;
 }
+
+
 /*Estilos clase buscador*/
 .buscador{
     margin-left: 1.5em;
     margin-top: 1.5em;
     position: absolute;
+    width: 20%;
     z-index: 1;
 }
 /*Estilos clase botones*/
@@ -129,7 +132,6 @@ position: relative;
 /*Estilo del boton Vista Horario*/
 #vista_horario{
     z-index: 1;
-    background-color: #68141C;
     color: white;
     text-align: center;
     font-size: 14px;
@@ -158,8 +160,8 @@ position: relative;
 .ventana {
     display: none;
     position: fixed;
-    top: 20%;
-    left: 20px;
+    top: 21%;
+    left: 2em;
     width: 20%;
     max-height: 70%; /* Altura máxima deseada de la ventana emergente */
     overflow: auto; /* Agrega barras de desplazamiento si es necesario */
@@ -180,10 +182,11 @@ position: relative;
 }
 .cerrar {
     position: absolute;
-    top: 5px;
-    right: 15px;
+    right: 2px;
     cursor: pointer;
-    font-size: 40px; 
+    font-size: 35px; 
+    background-color: white;
+    border-color: #68141C;
 }
 table {
     width: 100%; 

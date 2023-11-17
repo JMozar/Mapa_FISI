@@ -454,7 +454,7 @@ map.on('load', () => {
         '#68141C',
         '#fff' // color predeterminado de la capa
       ]); 
-
+      map.setPaintProperty('poi-labels2', 'text-color', ['case', ['==', ['get', 'codigo'], codigo], '#fff', '#000']);
       // Cambia el color del polígono cuando se hace clic en él.
     map.setPaintProperty('maine3', 'fill-color', [
         'case',
@@ -462,7 +462,7 @@ map.on('load', () => {
         '#68141C',
         '#fff' // color predeterminado de la capa
       ]);
-      
+      map.setPaintProperty('poi-labels3', 'text-color', ['case', ['==', ['get', 'codigo'], codigo], '#fff', '#000']);
     }  
     }
     
