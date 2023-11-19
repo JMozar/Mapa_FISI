@@ -92,7 +92,7 @@
         <div id="cabecera">
             <img src="../../public/img/logo-fisi.png" alt="Logo de la FISI">
             <h3>Mapa Interactivo de la FISI</h3>
-            <button onclick="redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Cerrar sesión</button>   
+            <button onclick="eliminarCookies(),redirigir_login()"><img src="../../public/img/usuario.png" alt="imagen" >Cerrar sesión</button>   
         </div>
     </header>
     <div class="contenedor">

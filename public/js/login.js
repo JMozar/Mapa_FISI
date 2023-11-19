@@ -5,7 +5,7 @@ window.onload = function () {
         
     if (recordarUsuario && recordarContrasena) {
         // Aquí puedes redirigir automáticamente al usuario a la página protegida
-        window.location.href = '../controlador/usu_controlador.php?accion=navegar_a_cursos';
+        window.location.href = "../controlador/curso_controlador.php?op=1";
     }
 }
 
